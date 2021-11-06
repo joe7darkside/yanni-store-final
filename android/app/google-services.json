@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "850177430904",
+    "project_id": "yanni-store-2fe63",
+    "storage_bucket": "yanni-store-2fe63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850177430904:android:34cb65d5c511b63468e48d",
+        "android_client_info": {
+          "package_name": "com.example.yanni_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "850177430904-tm3gtego58jjqhrcm23or10nesuqt5f3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yanni_store",
+            "certificate_hash": "3cc7673169ac7b74f48513228499887c1f421246"
+          }
+        },
+        {
+          "client_id": "850177430904-5ql93v189q6n9mekcjcnba5r42ks0spk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrZSrrEjEo86mREyQhkvGE-qttb7jEtiM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "850177430904-5ql93v189q6n9mekcjcnba5r42ks0spk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
