@@ -37,7 +37,7 @@ class CustemItemContainer extends StatelessWidget {
                 const EdgeInsets.only(top: 10, left: 8, right: 8, bottom: 8),
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/2.jpg'),
+                  image: AssetImage('assets/images/22.jpg'),
                   fit: BoxFit.fill,
                 ),
                 // boxShadow: [

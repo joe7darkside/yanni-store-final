@@ -89,7 +89,7 @@ class ItemsPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Image.asset(
-                            'assets/piano.png',
+                            'assets/images/22.jpg',
                             color: Colors.grey[800],
                             width: 35,
                           ),
@@ -127,7 +127,7 @@ class ItemsPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Image.asset(
-                            'assets/piano.png',
+                            'assets/images/22.jpg',
                             color: Colors.grey[800],
                             width: 35,
                           ),
@@ -146,7 +146,7 @@ class ItemsPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Image.asset(
-                            'assets/piano.png',
+                            'assets/images/22.jpg',
                             color: Colors.grey[800],
                             width: 35,
                           ),
@@ -165,7 +165,7 @@ class ItemsPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Image.asset(
-                            'assets/piano.png',
+                            'assets/images/22.jpg',
                             color: Colors.grey[800],
                             width: 35,
                           ),
@@ -184,7 +184,7 @@ class ItemsPage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Image.asset(
-                            'assets/piano.png',
+                            'assets/images/22.jpg',
                             color: Colors.grey[800],
                             width: 35,
                           ),
