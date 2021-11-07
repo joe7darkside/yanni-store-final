@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:yanni_store/categories/category_page.dart';
 import 'package:yanni_store/home/home_page.dart';
+import 'package:yanni_store/interface/products_items.dart';
 import 'package:yanni_store/profile/signIn/signin_page.dart';
 import 'package:yanni_store/store/store_page.dart';
 import 'botton_nav_bar.dart';
@@ -17,68 +18,14 @@ class MainPage extends StatelessWidget {
     return GetBuilder<BottonNav>(
       builder: (controller) {
         return Scaffold(
-            // floatingActionButton: FloatingActionButton(
-            //   backgroundColor: Colors.blueGrey,
-            //   child: Icon(Icons.search),
-            //   onPressed: () {},
-            // ),
-            body: SafeArea(child: _body()
-                // IndexedStack(
-                //   index: controller.tabIndex,
-                //   children: [
-                //     HomePage(),
-                //     StorePage(),
-                //     CategoryPage(),
-                //     CustomerSigninPage()
-                //   ],
-                // ),
-                ),
-            bottomNavigationBar: _bottonNavBar()
-            //  BottomNavigationBar(
-            //   onTap: controller.onTab,
-            //   currentIndex: controller.tabIndex,
-            //   items: [
-            //     BottomNavigationBarItem(
-            //       backgroundColor: Colors.blue[900],
-            //       icon: Icon(
-            //         Icons.home_outlined,
-            //         color: Colors.white,
-            //       ),
-            //       label: 'Home',
-            //     ),
-            //     BottomNavigationBarItem(
-            //       backgroundColor: Colors.blue[900],
-            //       icon: Icon(
-            //         Icons.shopping_cart_outlined,
-            //         color: Colors.white,
-            //       ),
-            //       label: 'Store',
-            //     ),
-            //     BottomNavigationBarItem(
-            //       backgroundColor: Colors.blue[900],
-            //       icon: Icon(
-            //         Icons.category_outlined,
-            //         color: Colors.white,
-            //       ),
-            //       label: 'categories',
-            //     ),
-            //     BottomNavigationBarItem(
-            //       backgroundColor: Colors.blue[900],
-            //       icon: Icon(
-            //         Icons.person_outline,
-            //         color: Colors.white,
-            //       ),
-            //       label: 'Account',
-            //     ),
-            //   ],
-            // ),
-            );
+            body: SafeArea(child: _body()),
+            bottomNavigationBar: _bottonNavBar());
       },
     );
   }
 
   Widget _body() {
-    List<Widget> pages = [HomePage(), StorePage(), CategoryPage(), SignIn()];
+    List<Widget> pages = [HomePage(), ItemsPage(), CategoryPage(), SignIn()];
     return IndexedStack(
       index: navController.tabIndex,
       children: pages,
@@ -92,16 +39,16 @@ class MainPage extends StatelessWidget {
         backgroundColor: Colors.white,
         items: <FlashyTabBarItem>[
           FlashyTabBarItem(
-            icon: const Icon(Icons.apps),
+            icon: const Icon(Icons.home),
             title: const Text('Home'),
           ),
           FlashyTabBarItem(
-            icon: const Icon(Icons.settings),
-            title: const Text('Settings'),
+            icon: const Icon(Icons.store),
+            title: const Text('Store'),
           ),
           FlashyTabBarItem(
-            icon: const Icon(Icons.people),
-            title: const Text('Profile'),
+            icon: const Icon(Icons.shopping_cart),
+            title: const Text('Cart'),
           ),
           FlashyTabBarItem(
             icon: const Icon(Icons.people),

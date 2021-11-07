@@ -12,11 +12,11 @@ class HomePage extends StatelessWidget {
         children: [
           Container(
             padding: EdgeInsets.only(bottom: 2),
-            child: Image.asset(
-              home_page_image,
-              fit: BoxFit.fitWidth,
-              height: 200,
-            ),
+            // child: Image.asset(
+            //   home_page_image,
+            //   fit: BoxFit.fitWidth,
+            //   height: 200,
+            // ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,24 +44,24 @@ class HomePage extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                CustomCard(
-                  image: cards_image1,
-                  title: 'item1',
-                  price: "10",
-                  category: 'uuuuu',
-                ),
-                CustomCard(
-                  image: cards_image2,
-                  title: 'item2',
-                  price: "10",
-                  category: 'gggg',
-                ),
-                CustomCard(
-                  image: cards_image3,
-                  title: 'item3',
-                  price: "10",
-                  category: 'ppppp',
-                )
+                // CustomCard(
+                //   image: cards_image1,
+                //   title: 'item1',
+                //   price: "10",
+                //   category: 'uuuuu',
+                // ),
+                // CustomCard(
+                //   image: cards_image2,
+                //   title: 'item2',
+                //   price: "10",
+                //   category: 'gggg',
+                // ),
+                // CustomCard(
+                //   image: cards_image3,
+                //   title: 'item3',
+                //   price: "10",
+                //   category: 'ppppp',
+                // )
               ],
             ),
           ),
@@ -91,24 +91,24 @@ class HomePage extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                CustomCard(
-                  image: cards_image1,
-                  title: 'item1',
-                  price: "10",
-                  category: 'uuuuu',
-                ),
-                CustomCard(
-                  image: cards_image2,
-                  title: 'item2',
-                  price: "10",
-                  category: 'gggg',
-                ),
-                CustomCard(
-                  image: cards_image3,
-                  title: 'item3',
-                  price: "10",
-                  category: 'ppppp',
-                )
+                // CustomCard(
+                //   image: cards_image1,
+                //   title: 'item1',
+                //   price: "10",
+                //   category: 'uuuuu',
+                // ),
+                // CustomCard(
+                //   image: cards_image2,
+                //   title: 'item2',
+                //   price: "10",
+                //   category: 'gggg',
+                // ),
+                // CustomCard(
+                //   image: cards_image3,
+                //   title: 'item3',
+                //   price: "10",
+                //   category: 'ppppp',
+                // )
               ],
             ),
           ),

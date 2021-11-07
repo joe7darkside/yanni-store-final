@@ -8,7 +8,6 @@ import 'package:yanni_store/categories/acoustic_guitar.dart';
 import 'package:yanni_store/categories/classic_guitar.dart';
 import 'package:yanni_store/categories/electric_guitar.dart';
 import 'package:yanni_store/categories/trumpet.dart';
-import 'package:yanni_store/splash_screen/splash_screen.dart';
 import 'package:yanni_store/store/search_bar_controller.dart';
 import 'accuonts/registration.dart';
 import 'categories/banjo.dart';
@@ -21,6 +20,7 @@ import 'categories/organ.dart';
 import 'categories/oud.dart';
 import 'categories/saxophone.dart';
 import 'categories/violin.dart';
+import 'interface/splash_screen/splash_screen.dart';
 import 'profile/signIn/signin_page.dart';
 
 void main() async {

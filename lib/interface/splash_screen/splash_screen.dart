@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:yanni_store/main/main_page.dart';
-import 'package:yanni_store/onBoarding_screen/onBoard_Screen.dart';
+import 'package:yanni_store/interface/onBoarding_screen/onBoarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,8 +13,8 @@ class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController _lottieAnimation;
   var expanded = false;
-  double _bigFontSize = kIsWeb ? 234 : 178;
-  final transitionDuration = Duration(seconds: 1);
+  final double _bigFontSize = kIsWeb ? 234 : 178;
+  final transitionDuration = const Duration(seconds: 1);
 
   @override
   void initState() {
@@ -56,8 +55,9 @@ class _SplashScreenState extends State<SplashScreen>
                 fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w600,
               ),
-              child: Text(
-                "Y",
+              child: Image.asset(
+                'assets/logo/logo.png',
+                width: 60,
               ),
             ),
             AnimatedCrossFade(
@@ -82,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          "ANNI STORE",
+          " YANNI STORE",
           style: TextStyle(
             color: Colors.blue[900],
             fontSize: 35,

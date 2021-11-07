@@ -1,10 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onboarding/onboarding.dart';
 import 'package:yanni_store/main/main_page.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
-import 'onBoard_controller.dart';
+import 'onboarding_controller.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
 class OnBoarding extends StatelessWidget {
   final OnBoardingController onBoardingController =

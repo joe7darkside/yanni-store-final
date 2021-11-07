@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:yanni_store/interface/profile_page/profile.dart';
 import 'package:yanni_store/products_data/firebase_store.dart';
 import 'package:yanni_store/utils/images.dart';
 
@@ -33,10 +34,11 @@ class SignIn extends StatelessWidget {
                 width: Adaptive.w(100),
                 height: Adaptive.h(40),
                 // width: Adaptive.w(50),
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(profile_bg), fit: BoxFit.fill),
-                    color: Colors.amber,
+                        image: AssetImage('assets/images/bg.jpg'),
+                        fit: BoxFit.fill),
+                    color: Colors.transparent,
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(60),
                         bottomRight: Radius.circular(60))),
@@ -46,8 +48,8 @@ class SignIn extends StatelessWidget {
                 child: Container(
                     margin: EdgeInsets.only(top: 140, bottom: 10.0),
                     width: Adaptive.w(84),
-                    height: Adaptive.h(45),
-                    decoration: BoxDecoration(
+                    height: Adaptive.h(60),
+                    decoration: const BoxDecoration(
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey,
@@ -62,143 +64,255 @@ class SignIn extends StatelessWidget {
                             bottomLeft: Radius.circular(10),
                             bottomRight: Radius.circular(10))),
                     child: FormBuilder(
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      key: _formKey,
-                      child: ListView(
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        // crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 20, bottom: 10, left: 25, right: 25),
-                            child: FormBuilderTextField(
-                              keyboardType: TextInputType.emailAddress,
-                              validator: FormBuilderValidators.compose([
-                                FormBuilderValidators.required(context),
-                                FormBuilderValidators.email(context),
-                                FormBuilderValidators.maxLength(context, 50),
-                              ]),
-                              controller: authController.email,
-                              textInputAction: TextInputAction.next,
-                              name: 'Email',
-                              decoration: InputDecoration(labelText: "Email"),
-                            ),
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        key: _formKey,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            // mainAxisAlignment: MainAxisAlignment.start,
+                            // crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 20, bottom: 10, left: 25, right: 25),
+                                child: FormBuilderTextField(
+                                  keyboardType: TextInputType.emailAddress,
+                                  validator: FormBuilderValidators.compose([
+                                    FormBuilderValidators.required(context),
+                                    FormBuilderValidators.email(context),
+                                    FormBuilderValidators.maxLength(
+                                        context, 50),
+                                  ]),
+                                  controller: authController.email,
+                                  textInputAction: TextInputAction.next,
+                                  name: 'Email',
+                                  decoration:
+                                      InputDecoration(labelText: "Email"),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 10, bottom: 10, left: 25, right: 25),
+                                child: FormBuilderTextField(
+                                  keyboardType: TextInputType.visiblePassword,
+                                  validator: FormBuilderValidators.compose([
+                                    FormBuilderValidators.required(context),
+                                    FormBuilderValidators.minLength(context, 8),
+                                    FormBuilderValidators.maxLength(
+                                        context, 50),
+                                  ]),
+                                  controller: authController.password,
+                                  textInputAction: TextInputAction.done,
+                                  name: 'Password',
+                                  decoration:
+                                      InputDecoration(labelText: "Password"),
+                                ),
+                              ),
+                              Row(
+                                // crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 12),
+                                    child: TextButton(
+                                        onPressed: () => Get.toNamed("/forget"),
+                                        child: Text(
+                                          "Forgot your password?",
+                                          style: TextStyle(
+                                              color: Colors.grey[700]),
+                                        )),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20, right: 20),
+                                child: FlatButton(
+                                  textColor: Colors.grey[800],
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    side: BorderSide(color: Colors.red),
+                                  ),
+                                  onPressed: () => Get.to(() => Profile()),
+                                  child: Text("SIGNIN"),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'OR',
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.grey[800],
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    'assets/social/facebook.png',
+                                    width: 40,
+                                  ),
+                                  Image.asset(
+                                    'assets/social/apple.png',
+                                    width: 40,
+                                  ),
+                                  Image.asset(
+                                    'assets/social/search.png',
+                                    width: 40,
+                                  )
+                                ],
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                              )
+                              // Padding(
+                              //   padding: const EdgeInsets.only(left: 40, right: 40),
+                              //   child: OutlinedButton(
+                              //     onPressed: null,
+                              //     style: ButtonStyle(
+                              //       // overlayColor:
+                              //       //     MaterialStateProperty.all(Colors.red),
+                              //       foregroundColor:
+                              //           MaterialStateProperty.all(Colors.red),
+                              //       shape: MaterialStateProperty.all(
+                              //           RoundedRectangleBorder(
+                              //               borderRadius:
+                              //                   BorderRadius.circular(30.0))),
+                              //     ),
+                              //     child: const Text("SIGNIN"),
+                              //   ),
+                              // )
+                              // Spacer(),
+                              // Divider(
+                              //   height: 0,
+                              //   thickness: 2.5,
+                              //   color: Colors.redAccent,
+                              // ),
+                              // TextButton(
+                              //   onPressed: () => Get.toNamed("/forget"),
+                              //   child: Text(
+                              //     "SIGN IN",
+                              //     style: GoogleFonts.lato(
+                              //         color: Colors.redAccent,
+                              //         fontWeight: FontWeight.bold),
+                              //   ),
+                              // ),
+
+                              ,
+                              SizedBox(
+                                height: Adaptive.h(1),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Don't have an account?",
+                                    style: GoogleFonts.lato(
+                                        color: Colors.grey[600],
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      "Sign up",
+                                      style: GoogleFonts.lato(
+                                          color: Colors.grey[800],
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              // Row(
+                              //   mainAxisAlignment: MainAxisAlignment.center,
+                              //   children: [
+                              //     Text(
+                              //       "Don't have an account?",
+                              //       style: GoogleFonts.lato(
+                              //           color: Colors.grey[600],
+                              //           fontWeight: FontWeight.bold),
+                              //     ),
+                              //     TextButton(
+                              //       onPressed: () {},
+                              //       child: Text(
+                              //         "Sign up",
+                              //         style: GoogleFonts.lato(
+                              //             color: Colors.grey[800],
+                              //             fontWeight: FontWeight.bold),
+                              //       ),
+                              //     )
+                              //   ],
+                              // )
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 10, bottom: 10, left: 25, right: 25),
-                            child: FormBuilderTextField(
-                              keyboardType: TextInputType.visiblePassword,
-                              validator: FormBuilderValidators.compose([
-                                FormBuilderValidators.required(context),
-                                FormBuilderValidators.minLength(context, 8),
-                                FormBuilderValidators.maxLength(context, 50),
-                              ]),
-                              controller: authController.password,
-                              textInputAction: TextInputAction.done,
-                              name: 'Password',
-                              decoration:
-                                  InputDecoration(labelText: "Password"),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 95),
-                            child: TextButton(
-                                onPressed: () => Get.toNamed("/forget"),
-                                child: Text(
-                                  "Forgot your password?",
-                                  style: TextStyle(color: Colors.grey[700]),
-                                )),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          // Spacer(),
-                          Divider(
-                            height: 0,
-                            thickness: 2.5,
-                            color: Colors.redAccent,
-                          ),
-                          TextButton(
-                            onPressed: () => Get.toNamed("/forget"),
-                            child: Text(
-                              "SIGN IN",
-                              style: GoogleFonts.lato(
-                                  color: Colors.redAccent,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          SizedBox(
-                            height: Adaptive.h(3),
-                          )
-                        ],
-                      ),
-                    )),
+                        ))),
               ),
             ],
           ),
           SizedBox(
             height: Adaptive.h(4),
           ),
-          Container(
-              // margin: EdgeInsets.only(top: 140, bottom: 10.0),
-              width: Adaptive.w(60),
-              height: Adaptive.h(6),
-              decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(0.0, 0.7),
-                      blurRadius: 4.0,
-                    ),
-                  ],
-                  color: Colors.blue[700],
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(5),
-                      topRight: Radius.circular(5),
-                      bottomLeft: Radius.circular(5),
-                      bottomRight: Radius.circular(5))),
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    FaIcon(
-                      FontAwesomeIcons.facebook,
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      width: Adaptive.w(2),
-                    ),
-                    Text(
-                      'Connect With Facebook',
-                      style: GoogleFonts.lato(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              )),
-          SizedBox(
-            height: Adaptive.h(2),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Don't have an account?",
-                style: GoogleFonts.lato(
-                    color: Colors.grey[600], fontWeight: FontWeight.bold),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Sign up",
-                  style: GoogleFonts.lato(
-                      color: Colors.grey[800], fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          )
+          // Container(
+          //     // margin: EdgeInsets.only(top: 140, bottom: 10.0),
+          //     width: Adaptive.w(60),
+          //     height: Adaptive.h(6),
+          //     decoration: BoxDecoration(
+          //         boxShadow: [
+          //           BoxShadow(
+          //             color: Colors.grey,
+          //             offset: Offset(0.0, 0.7),
+          //             blurRadius: 4.0,
+          //           ),
+          //         ],
+          //         color: Colors.blue[700],
+          //         borderRadius: const BorderRadius.only(
+          //             topLeft: Radius.circular(5),
+          //             topRight: Radius.circular(5),
+          //             bottomLeft: Radius.circular(5),
+          //             bottomRight: Radius.circular(5))),
+          //     child: Center(
+          //       child: Row(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         crossAxisAlignment: CrossAxisAlignment.center,
+          //         children: [
+          //           FaIcon(
+          //             FontAwesomeIcons.facebook,
+          //             color: Colors.white,
+          //           ),
+          //           SizedBox(
+          //             width: Adaptive.w(2),
+          //           ),
+          //           Text(
+          //             'Connect With Facebook',
+          //             style: GoogleFonts.lato(
+          //                 color: Colors.white, fontWeight: FontWeight.bold),
+          //           ),
+          //         ],
+          //       ),
+          //     )
+          //     ),
+          // SizedBox(
+          //   height: Adaptive.h(2),
+          // ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Text(
+          //       "Don't have an account?",
+          //       style: GoogleFonts.lato(
+          //           color: Colors.grey[600], fontWeight: FontWeight.bold),
+          //     ),
+          //     TextButton(
+          //       onPressed: () {},
+          //       child: Text(
+          //         "Sign up",
+          //         style: GoogleFonts.lato(
+          //             color: Colors.grey[800], fontWeight: FontWeight.bold),
+          //       ),
+          //     )
+          //   ],
+          // )
         ],
       ),
     )

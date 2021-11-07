@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'custem_item_container.dart';
+import 'product_container.dart';
 
 class ItemsPage extends StatelessWidget {
   const ItemsPage({Key? key}) : super(key: key);

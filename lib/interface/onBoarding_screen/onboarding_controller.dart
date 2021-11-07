@@ -8,22 +8,22 @@ class OnBoardingController {
     PageModel(
       widget: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SvgPicture.asset(
-            'assets/images/onBoarding/music.svg',
+            'assets/onBoarding/music.svg',
             height: Adaptive.h(40),
             width: Adaptive.h(50),
           ),
-          Spacer(),
-          Container(
+          const Spacer(),
+          const SizedBox(
               width: double.infinity,
               child: Text('WELCOME TO YANNI', style: pageTitleStyle)),
           Container(
             margin: EdgeInsets.only(bottom: 20),
             width: double.infinity,
-            child: Text(
+            child: const Text(
               'Home of music and playing instruments',
               style: pageInfoStyle,
             ),
@@ -38,7 +38,7 @@ class OnBoardingController {
             height: 20,
           ),
           SvgPicture.asset(
-            'assets/images/onBoarding/online_shoping.svg',
+            'assets/onBoarding/online_shoping.svg',
             height: Adaptive.h(40),
             width: Adaptive.h(50),
           ),
@@ -64,7 +64,7 @@ class OnBoardingController {
             height: 20,
           ),
           SvgPicture.asset(
-            'assets/images/onBoarding/delivery.svg',
+            'assets/onBoarding/delivery.svg',
             height: Adaptive.h(40),
             width: Adaptive.h(50),
           ),
