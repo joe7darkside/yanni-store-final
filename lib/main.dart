@@ -20,6 +20,7 @@ import 'categories/organ.dart';
 import 'categories/oud.dart';
 import 'categories/saxophone.dart';
 import 'categories/violin.dart';
+import 'interface/product_page/product_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
 import 'profile/signIn/signin_page.dart';
 
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home: SplashScreen(),
+          home: ProductPage(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/one", page: () => AcousticGuitarPage()),
