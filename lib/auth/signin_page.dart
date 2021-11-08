@@ -180,7 +180,7 @@ class SignInPage extends StatelessWidget {
                                         fontWeight: FontWeight.bold),
                                   ),
                                   TextButton(
-                                    onPressed: () {},
+                                    onPressed: () =>Get.toNamed("/sixteen"),
                                     child: Text(
                                       "Sign up",
                                       style: GoogleFonts.lato(

@@ -4,6 +4,14 @@ import 'package:get/get.dart';
 class FirebaseController extends GetxController {
   final CollectionReference _firestore =
       FirebaseFirestore.instance.collection('products');
+  final CollectionReference _firestore_users =
+      FirebaseFirestore.instance.collection('users');
+
+  @override
+  onInit() {
+    readItems();
+  }
+
   addItem() async {
     var documentReference =
         _firestore.doc('piano').collection('piano-products').doc();

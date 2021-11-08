@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/accuonts/forgot_password_page.dart';
+import 'package:yanni_store/accuonts/signin_page.dart';
 import 'package:yanni_store/categories/Tambourine.dart';
 import 'package:yanni_store/categories/acoustic_guitar.dart';
 import 'package:yanni_store/categories/classic_guitar.dart';
@@ -10,6 +11,7 @@ import 'package:yanni_store/categories/electric_guitar.dart';
 import 'package:yanni_store/categories/trumpet.dart';
 import 'package:yanni_store/store/search_bar_controller.dart';
 import 'accuonts/registration.dart';
+import 'auth/Registration_page.dart';
 import 'auth/auth_page.dart';
 import 'categories/banjo.dart';
 import 'categories/cello.dart';
@@ -58,7 +60,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: "/treeteen", page: () => OrganPage()),
             GetPage(name: "/fourteen", page: () => TambourinePage()),
             GetPage(name: "/fifteen", page: () => TrumpetPage()),
-            GetPage(name: "/sixteen", page: () => RegistrationPage()),
+            GetPage(name: "/sixteen", page: () => RegisterPage()),
             GetPage(name: "/seventeen", page: () => AuthPage()),
             GetPage(name: "/forget", page: () => ForgotPasswordPage())
           ]);

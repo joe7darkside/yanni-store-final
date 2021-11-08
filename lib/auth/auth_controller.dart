@@ -8,25 +8,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'errors_handler/error_haandler.dart';
 
 class AuthController extends GetxController {
-  final CollectionReference _firestore =
-      FirebaseFirestore.instance.collection('users');
-  addItem() async {
-    var documentReference = _firestore.doc();
-
-    Map<String, dynamic> data = <String, dynamic>{
-      'name': 'joe saleh',
-      'email': 'jo2014saleh@gmail.com',
-      'password': '1jasnkasdojfjsdn123r',
-    };
-    await documentReference
-        .set(data)
-        .whenComplete(() => print('$data'))
-        .catchError((e) => print(e));
-  }
-
   var googleSignInAccount = Rx<GoogleSignInAccount?>(null);
   final email = TextEditingController();
+  final name = TextEditingController();
   final password = TextEditingController();
+  RxString userName = ''.obs;
+  RxString userEmail = ''.obs;
+
   var isLogin = false.obs;
   StreamSubscription<User?>? user;
   final User? _user = auth.FirebaseAuth.instance.currentUser;
@@ -38,7 +26,8 @@ class AuthController extends GetxController {
         print('User is currently signed out!');
       } else {
         isLogin.value = true;
-
+        userName = RxString(_user!.displayName!);
+        userEmail = RxString(_user!.email!);
         print('User is signed in!');
       }
     });
@@ -81,22 +70,27 @@ class AuthController extends GetxController {
     }
   }
 
-  // signinWithFacebook() async{
-  //   try {
-  //     FacebookLogin
-
-  //     isLogin.value = true;
-  //   } catch (e) {}
-  // }
-
 //Registration with email and password
   void create() async {
+    final CollectionReference _firestore =
+        FirebaseFirestore.instance.collection('users');
+    var documentReference = _firestore.doc();
+
+    Map<String, dynamic> data = <String, dynamic>{
+      'name': name.text,
+      'email': email.text,
+      'password': password.text,
+    };
     try {
       auth.FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: email.text, password: password.text);
+      await documentReference
+          .set(data)
+          .whenComplete(() => print('$data'))
+          .catchError((e) => print(e));
+      isLogin.value = true;
     } on auth.FirebaseAuthException catch (e) {
       print(AuthExceptionHandler().handleException(e));
-      // AuthExceptionHandler().handleException(e);
     }
   }
 

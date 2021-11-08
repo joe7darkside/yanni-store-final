@@ -23,19 +23,19 @@ class AuthPage extends StatelessWidget {
     return Obx(() => authController.isLogin.value ? Profile() : SignInPage());
   }
 
-  Widget profile() {
-    return Scaffold(
-      body: Container(
-        width: Adaptive.w(100),
-        height: Adaptive.h(100),
-        color: Colors.blueAccent[400],
-        child: ElevatedButton(
-          child: Text('Signout'),
-          onPressed: () => authController.signout(),
-        ),
-      ),
-    );
-  }
+  // Widget profile() {
+  //   return Scaffold(
+  //     body: Container(
+  //       width: Adaptive.w(100),
+  //       height: Adaptive.h(100),
+  //       color: Colors.blueAccent[400],
+  //       child: ElevatedButton(
+  //         child: Text('Signout'),
+  //         onPressed: () => authController.signout(),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   // Widget signIn(context) {
   //   return Scaffold(

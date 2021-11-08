@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/auth/auth_controller.dart';
+import 'package:yanni_store/firebase_data/firebase_store.dart';
 import 'custem_container.dart';
 
 class Profile extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
+  final FirebaseController firebaseController = Get.put(FirebaseController());
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +49,13 @@ class Profile extends StatelessWidget {
                   height: Adaptive.h(2),
                 ),
                 Text(
-                  'Sarah muhammed',
+                  '${authController.googleSignInAccount.value?.displayName ?? ''}',
                   style: GoogleFonts.lato(
                       color: Colors.grey[800],
                       fontWeight: FontWeight.bold,
                       fontSize: 24),
                 ),
-                Text('jo2014saleh@gmail.com',
+                Text('${authController.googleSignInAccount.value?.email ?? ''}',
                     style: GoogleFonts.lato(
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w500,
