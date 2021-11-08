@@ -10,6 +10,7 @@ import 'package:yanni_store/categories/electric_guitar.dart';
 import 'package:yanni_store/categories/trumpet.dart';
 import 'package:yanni_store/store/search_bar_controller.dart';
 import 'accuonts/registration.dart';
+import 'auth/auth_page.dart';
 import 'categories/banjo.dart';
 import 'categories/cello.dart';
 import 'categories/clarinet.dart';
@@ -22,18 +23,16 @@ import 'categories/saxophone.dart';
 import 'categories/violin.dart';
 import 'interface/product_page/product_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
-import 'profile/signIn/signin_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final SearchbarController controller = Get.put(SearchbarController());
-  controller.getItemsName();
+  // controller.getItemsName();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home: ProductPage(),
+          home: AuthPage(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/one", page: () => AcousticGuitarPage()),
@@ -60,7 +59,7 @@ class MyApp extends StatelessWidget {
             GetPage(name: "/fourteen", page: () => TambourinePage()),
             GetPage(name: "/fifteen", page: () => TrumpetPage()),
             GetPage(name: "/sixteen", page: () => RegistrationPage()),
-            GetPage(name: "/seventeen", page: () => SignIn()),
+            GetPage(name: "/seventeen", page: () => AuthPage()),
             GetPage(name: "/forget", page: () => ForgotPasswordPage())
           ]);
     });

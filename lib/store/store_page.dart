@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yanni_store/cards/card_model.dart';
 import 'package:yanni_store/cards/custom_card.dart';
-import 'package:yanni_store/products_data/firebase_store.dart';
+import 'package:yanni_store/firebase_data/firebase_store.dart';
 import 'package:yanni_store/utils/images.dart';
 import 'package:get/get.dart';
-
 import 'search_bar_controller.dart';
 
 class StorePage extends StatelessWidget {
@@ -22,7 +21,6 @@ class StorePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: PopupMenuButton<int>(
-                // color: Colors.white,
                 onSelected: (item) => selectedItem(
                   context,
                   item,
@@ -31,7 +29,7 @@ class StorePage extends StatelessWidget {
                   PopupMenuItem(
                     value: 0,
                     child: Row(
-                      children: [
+                      children: const[
                         FaIcon(
                           FontAwesomeIcons.phoneVolume,
                         ),
@@ -66,7 +64,7 @@ class StorePage extends StatelessWidget {
                   PopupMenuItem(
                     value: 1,
                     child: Row(
-                      children: [
+                      children:const [
                         FaIcon(
                           FontAwesomeIcons.sort,
                         ),
@@ -112,7 +110,7 @@ class StorePage extends StatelessWidget {
                       print("Filter");
                     },
                     child: Row(
-                      children: [
+                      children: const[
                         Icon(
                           Icons.sort,
                           // color: Colors.black,

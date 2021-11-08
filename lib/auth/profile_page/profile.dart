@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:yanni_store/auth/auth_controller.dart';
 import 'custem_container.dart';
 
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
+  final AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +23,13 @@ class Profile extends StatelessWidget {
                   BoxShadow(
                     color: Colors.grey,
                     offset: Offset(0.0, 0.4),
-                    blurRadius: 6.0,
+                    blurRadius: 2.0,
                   ),
                 ],
                 color: Colors.blue[400],
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10),
+                    topLeft: Radius.circular(0),
+                    topRight: Radius.circular(0),
                     bottomLeft: Radius.circular(80),
                     bottomRight: Radius.circular(80))),
             child: Column(
@@ -89,6 +91,7 @@ class Profile extends StatelessWidget {
             color: Colors.redAccent,
           ),
           GestureDetector(
+            onTap: () => authController.signout(),
             child: Container(
               height: Adaptive.h(7),
               child: Row(

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:yanni_store/auth/auth_page.dart';
 
 import 'package:yanni_store/categories/category_page.dart';
 import 'package:yanni_store/home/home_page.dart';
 import 'package:yanni_store/interface/products_items.dart';
-import 'package:yanni_store/profile/signIn/signin_page.dart';
 import 'package:yanni_store/store/store_page.dart';
 import 'botton_nav_bar.dart';
 import 'nav_controller.dart';
@@ -25,7 +25,12 @@ class MainPage extends StatelessWidget {
   }
 
   Widget _body() {
-    List<Widget> pages = [HomePage(), ItemsPage(), CategoryPage(), SignIn()];
+    List<Widget> pages = [
+      const HomePage(),
+      const ItemsPage(),
+      const CategoryPage(),
+      AuthPage(),
+    ];
     return IndexedStack(
       index: navController.tabIndex,
       children: pages,

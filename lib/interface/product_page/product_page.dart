@@ -26,20 +26,23 @@ class ProductPage extends StatelessWidget {
                   // SizedBox(
                   //   height: 30,
                   // ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Icon(
-                        Icons.arrow_back_ios_new,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                      Icon(
-                        Icons.favorite_border,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Icon(
+                          Icons.arrow_back_ios_new,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        Icon(
+                          Icons.favorite_border,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
