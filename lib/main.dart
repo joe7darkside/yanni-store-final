@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home: AuthPage(),
+          home: SplashScreen(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/one", page: () => AcousticGuitarPage()),
