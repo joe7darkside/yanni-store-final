@@ -1,39 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:yanni_store/cards/custom_card.dart';
-import 'package:yanni_store/utils/images.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:yanni_store/products/product_model.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+  final ProductModel controller=Get.put(ProductModel());
+  final _lableStyle =
+      GoogleFonts.firaSans(fontSize: 22, fontWeight: FontWeight.w600);
+  final _buttonStyle = GoogleFonts.lato(
+      fontSize: 14, fontWeight: FontWeight.w700, color: Colors.grey[700]);
+  final _icon = Icon(
+    Icons.double_arrow_rounded,
+    color: Colors.grey[600],
+    size: 25,
+  );
   @override
   Widget build(BuildContext context) {
     return Container(
       child: ListView(
         children: [
-          Container(
-            padding: EdgeInsets.only(bottom: 2),
-            // child: Image.asset(
-            //   home_page_image,
-            //   fit: BoxFit.fitWidth,
-            //   height: 200,
-            // ),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.only(left: 15, top: 10),
+                  margin: EdgeInsets.only(left: 15, top: 15),
                   child: Text(
-                    "New",
-                    style: TextStyle(fontSize: 22),
+                    "New Arrival",
+                    style: _lableStyle,
                   )),
               Container(
-                  margin: EdgeInsets.only(left: 15, top: 10),
+                  margin: EdgeInsets.only(left: 15, right: 10, top: 15),
                   child: TextButton(
                       onPressed: () {},
-                      child: Text(
-                        'View all',
-                        style: TextStyle(color: Colors.white),
+                      child: Row(
+                        children: [
+                          Text(
+                            'See More',
+                            style: _buttonStyle,
+                          ),
+                          _icon
+                        ],
                       )))
             ],
           ),
@@ -43,44 +50,31 @@ class HomePage extends StatelessWidget {
             // width: 300,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [
-                // CustomCard(
-                //   image: cards_image1,
-                //   title: 'item1',
-                //   price: "10",
-                //   category: 'uuuuu',
-                // ),
-                // CustomCard(
-                //   image: cards_image2,
-                //   title: 'item2',
-                //   price: "10",
-                //   category: 'gggg',
-                // ),
-                // CustomCard(
-                //   image: cards_image3,
-                //   title: 'item3',
-                //   price: "10",
-                //   category: 'ppppp',
-                // )
-              ],
+              children: [],
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                   margin: EdgeInsets.only(left: 15, top: 10),
                   child: Text(
-                    "Offers",
-                    style: TextStyle(fontSize: 22),
+                    "New Offers",
+                    style: _lableStyle,
                   )),
               Container(
-                  margin: EdgeInsets.only(left: 15, top: 10),
+                  margin: EdgeInsets.only(left: 15, right: 10, top: 12),
                   child: TextButton(
                       onPressed: () {},
-                      child: Text(
-                        'View all',
-                        style: TextStyle(color: Colors.white),
+                      child: Row(
+                        children: [
+                          Text(
+                            'See More',
+                            style: _buttonStyle,
+                          ),
+                          _icon
+                        ],
                       )))
             ],
           ),
@@ -90,26 +84,40 @@ class HomePage extends StatelessWidget {
             // width: 300,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [
-                // CustomCard(
-                //   image: cards_image1,
-                //   title: 'item1',
-                //   price: "10",
-                //   category: 'uuuuu',
-                // ),
-                // CustomCard(
-                //   image: cards_image2,
-                //   title: 'item2',
-                //   price: "10",
-                //   category: 'gggg',
-                // ),
-                // CustomCard(
-                //   image: cards_image3,
-                //   title: 'item3',
-                //   price: "10",
-                //   category: 'ppppp',
-                // )
-              ],
+              children: [],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                  margin: EdgeInsets.only(left: 15, top: 10),
+                  child: Text(
+                    "Most Populer",
+                    style: _lableStyle,
+                  )),
+              Container(
+                  margin: EdgeInsets.only(left: 15, right: 10, top: 12),
+                  child: TextButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Text(
+                            'See More',
+                            style: _buttonStyle,
+                          ),
+                          _icon
+                        ],
+                      )))
+            ],
+          ),
+          Container(
+            height: 272,
+            // width: 300,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [],
             ),
           ),
         ],

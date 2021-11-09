@@ -7,10 +7,10 @@ class FirebaseController extends GetxController {
   final CollectionReference _firestore_users =
       FirebaseFirestore.instance.collection('users');
 
-  @override
-  onInit() {
-    readItems();
-  }
+  // @override
+  // onInit() {
+  //   readItems();
+  // }
 
   addItem() async {
     var documentReference =

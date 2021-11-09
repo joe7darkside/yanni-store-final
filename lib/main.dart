@@ -3,34 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/accuonts/forgot_password_page.dart';
-import 'package:yanni_store/accuonts/signin_page.dart';
-import 'package:yanni_store/categories/Tambourine.dart';
-import 'package:yanni_store/categories/acoustic_guitar.dart';
-import 'package:yanni_store/categories/classic_guitar.dart';
-import 'package:yanni_store/categories/electric_guitar.dart';
-import 'package:yanni_store/categories/trumpet.dart';
-import 'package:yanni_store/store/search_bar_controller.dart';
-import 'accuonts/registration.dart';
+// import 'package:yanni_store/accuonts/signin_page.dart';
+// import 'package:yanni_store/categories/Tambourine.dart';
+// import 'package:yanni_store/categories/acoustic_guitar.dart';
+// import 'package:yanni_store/categories/classic_guitar.dart';
+// import 'package:yanni_store/categories/electric_guitar.dart';
+// import 'package:yanni_store/categories/trumpet.dart';
+// import 'package:yanni_store/store/search_bar_controller.dart';
+// import 'accuonts/registration.dart';
 import 'auth/Registration_page.dart';
 import 'auth/auth_page.dart';
-import 'categories/banjo.dart';
-import 'categories/cello.dart';
-import 'categories/clarinet.dart';
-import 'categories/drums.dart';
-import 'categories/harmonica.dart';
-import 'categories/milodica.dart';
-import 'categories/organ.dart';
-import 'categories/oud.dart';
-import 'categories/saxophone.dart';
-import 'categories/violin.dart';
-import 'interface/product_page/product_page.dart';
+// import 'categories/banjo.dart';
+// import 'categories/cello.dart';
+// import 'categories/clarinet.dart';
+// import 'categories/drums.dart';
+// import 'categories/harmonica.dart';
+// import 'categories/milodica.dart';
+// import 'categories/organ.dart';
+// import 'categories/oud.dart';
+// import 'categories/saxophone.dart';
+// import 'categories/violin.dart';
+// import 'interface/product_page/product_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
+import 'products/dashboard/add/add_products.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  final SearchbarController controller = Get.put(SearchbarController());
-  // controller.getItemsName();
   runApp(MyApp());
 }
 
@@ -42,27 +41,27 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home: SplashScreen(),
+          home:  AddProduct(),
           debugShowCheckedModeBanner: false,
           getPages: [
-            GetPage(name: "/one", page: () => AcousticGuitarPage()),
-            GetPage(name: "/two", page: () => ClassicGuitarPage()),
-            GetPage(name: "/three", page: () => ElectricGuitarPage()),
-            GetPage(name: "/four", page: () => DrumsPage()),
-            GetPage(name: "/fife", page: () => BanjoPage()),
-            GetPage(name: "/six", page: () => CelloPage()),
-            GetPage(name: "/seven", page: () => ClarinetPage()),
-            GetPage(name: "/eight", page: () => ViolinPage()),
-            GetPage(name: "/nine", page: () => HarmonicaPage()),
-            GetPage(name: "/ten", page: () => MilodicaPage()),
-            GetPage(name: "/eleven", page: () => OudPage()),
-            GetPage(name: "/twelve", page: () => SaxophonePage()),
-            GetPage(name: "/treeteen", page: () => OrganPage()),
-            GetPage(name: "/fourteen", page: () => TambourinePage()),
-            GetPage(name: "/fifteen", page: () => TrumpetPage()),
-            GetPage(name: "/sixteen", page: () => RegisterPage()),
-            GetPage(name: "/seventeen", page: () => AuthPage()),
-            GetPage(name: "/forget", page: () => ForgotPasswordPage())
+            GetPage(name: "/auth", page: () => AuthPage()),
+            GetPage(name: "/register", page: () => RegisterPage()),
+            GetPage(name: "/forgot", page: () => ForgotPasswordPage())
+            // GetPage(name: "/one", page: () => AcousticGuitarPage()),
+            // GetPage(name: "/two", page: () => ClassicGuitarPage()),
+            // GetPage(name: "/three", page: () => ElectricGuitarPage()),
+            // GetPage(name: "/four", page: () => DrumsPage()),
+            // GetPage(name: "/fife", page: () => BanjoPage()),
+            // GetPage(name: "/six", page: () => CelloPage()),
+            // GetPage(name: "/seven", page: () => ClarinetPage()),
+            // GetPage(name: "/eight", page: () => ViolinPage()),
+            // GetPage(name: "/nine", page: () => HarmonicaPage()),
+            // GetPage(name: "/ten", page: () => MilodicaPage()),
+            // GetPage(name: "/eleven", page: () => OudPage()),
+            // GetPage(name: "/twelve", page: () => SaxophonePage()),
+            // GetPage(name: "/treeteen", page: () => OrganPage()),
+            // GetPage(name: "/fourteen", page: () => TambourinePage()),
+            // GetPage(name: "/fifteen", page: () => TrumpetPage()),
           ]);
     });
   }

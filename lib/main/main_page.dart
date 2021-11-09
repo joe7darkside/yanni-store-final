@@ -26,7 +26,7 @@ class MainPage extends StatelessWidget {
 
   Widget _body() {
     List<Widget> pages = [
-      const HomePage(),
+       HomePage(),
       const ItemsPage(),
       const CategoryPage(),
       AuthPage(),
