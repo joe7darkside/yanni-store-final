@@ -24,8 +24,11 @@ import 'auth/auth_page.dart';
 // import 'categories/saxophone.dart';
 // import 'categories/violin.dart';
 // import 'interface/product_page/product_page.dart';
+import 'interface/products_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
 import 'products/dashboard/add/add_products.dart';
+import 'products/dashboard/add/dashboard.dart';
+import 'products/product_ui.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home:  AddProduct(),
+          home:  ProductsPage(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/auth", page: () => AuthPage()),

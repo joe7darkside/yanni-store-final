@@ -5,7 +5,7 @@ import 'package:yanni_store/auth/auth_page.dart';
 
 import 'package:yanni_store/categories/category_page.dart';
 import 'package:yanni_store/home/home_page.dart';
-import 'package:yanni_store/interface/products_items.dart';
+import 'package:yanni_store/interface/products_page.dart';
 import 'package:yanni_store/store/store_page.dart';
 import 'botton_nav_bar.dart';
 import 'nav_controller.dart';
@@ -27,7 +27,7 @@ class MainPage extends StatelessWidget {
   Widget _body() {
     List<Widget> pages = [
        HomePage(),
-      const ItemsPage(),
+      const ProductsPage(),
       const CategoryPage(),
       AuthPage(),
     ];
