@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home:  ProductsPage(),
+          home:  SplashScreen(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/auth", page: () => AuthPage()),

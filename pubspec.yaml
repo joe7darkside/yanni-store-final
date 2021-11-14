@@ -87,6 +87,7 @@ flutter:
     - assets/onBoarding/
     - assets/images/
     - assets/social/
+    - assets/svg/
 
   #   - images/a_dot_ham.jpeg
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yanni_store/auth/auth_page.dart';
 
-import 'package:yanni_store/categories/category_page.dart';
+import 'package:yanni_store/interface/cart_page/cart_page.dart';
 import 'package:yanni_store/home/home_page.dart';
 import 'package:yanni_store/interface/products_page.dart';
 import 'package:yanni_store/store/store_page.dart';
@@ -28,7 +28,7 @@ class MainPage extends StatelessWidget {
     List<Widget> pages = [
        HomePage(),
       const ProductsPage(),
-      const CategoryPage(),
+      const CartPage(),
       AuthPage(),
     ];
     return IndexedStack(

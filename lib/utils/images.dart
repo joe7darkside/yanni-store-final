@@ -1,4 +1,6 @@
 //? Categories images
+import 'package:yanni_store/interface/cart_page/empty_cart.dart';
+
 const home_page_image = 'assets/images/org.jpg';
 const cards_image1 = 'assets/images/1.jpg';
 const cards_image2 = 'assets/images/2.jpg';
@@ -32,3 +34,5 @@ const google_icon = 'assets/images/search.png';
 const facebook_icon = 'assets/images/facebook.png';
 const twitter_icon = 'assets/images/twitter.png';
 const admin_image = 'assets/images/admin.png';
+
+const emptyCart = 'assets/svg/empty_cart.svg';
