@@ -24,6 +24,7 @@ import 'auth/auth_page.dart';
 // import 'categories/saxophone.dart';
 // import 'categories/violin.dart';
 // import 'interface/product_page/product_page.dart';
+import 'auth/profile_page/settings/settings_page.dart';
 import 'interface/products_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
 import 'products/dashboard/add/add_products.dart';
@@ -44,10 +45,11 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home:  SplashScreen(),
+          home: SplashScreen(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/auth", page: () => AuthPage()),
+            GetPage(name: "/settings", page: () => Settings()),
             GetPage(name: "/register", page: () => RegisterPage()),
             GetPage(name: "/forgot", page: () => ForgotPasswordPage())
             // GetPage(name: "/one", page: () => AcousticGuitarPage()),

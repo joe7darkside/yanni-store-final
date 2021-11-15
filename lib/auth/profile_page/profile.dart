@@ -19,7 +19,7 @@ class Profile extends StatelessWidget {
         children: [
           Container(
             width: Adaptive.w(100),
-            height: Adaptive.h(40),
+            height: Adaptive.h(35),
             decoration: BoxDecoration(
                 boxShadow: const [
                   BoxShadow(
@@ -66,23 +66,23 @@ class Profile extends StatelessWidget {
           SizedBox(
             height: Adaptive.h(3),
           ),
-          CustemContainer(
+          CustemContainer(path:'' ,
             tilte: "Shopping Address",
             icon: Icons.location_on_outlined,
           ),
-          CustemContainer(
+          CustemContainer(path:'' ,
             tilte: "Payments",
             icon: Icons.payment,
           ),
-          CustemContainer(
+          CustemContainer(path: '',
             tilte: "My Orders",
             icon: Icons.shopping_cart_outlined,
           ),
-          CustemContainer(
+          CustemContainer(path: "/settings",
             tilte: "Settings",
             icon: Icons.settings,
           ),
-          CustemContainer(
+          CustemContainer(path: '',
             tilte: "favourites",
             icon: Icons.favorite_border,
           ),

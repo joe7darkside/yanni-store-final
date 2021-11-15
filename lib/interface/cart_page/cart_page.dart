@@ -4,7 +4,7 @@ import 'empty_cart.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({Key? key}) : super(key: key);
-  final _isEmpty = false;
+  final _isEmpty = true;
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +12,11 @@ class CartPage extends StatelessWidget {
         ? EmptyCart()
         : Column(
             children: [
-              
               Flexible(
                 child: ListView.builder(
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return const CustemCartItem();
+                    return CustemCartItem();
                   },
                   itemCount: 7,
                 ),

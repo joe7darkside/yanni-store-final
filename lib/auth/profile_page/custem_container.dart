@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustemContainer extends StatelessWidget {
-  CustemContainer({this.tilte,this.icon});
+  CustemContainer(
+      {required this.tilte, required this.icon, required this.path});
   final tilte;
   final icon;
+  final path;
   // final subTitle;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => print('works'),
+      onTap: () => Get.toNamed(path),
       child: Padding(
         padding: const EdgeInsets.only(left: 35, right: 35),
         child: ListTile(
