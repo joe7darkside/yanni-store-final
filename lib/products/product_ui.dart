@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:like_button/like_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProductUi extends StatelessWidget {
-  const ProductUi({Key? key}) : super(key: key);
-
+  // const ProductUi({Key? key}) : super(key: key);
+  var likeCount = 15;
+  var buttonSize = 30.0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,12 +65,14 @@ class ProductUi extends StatelessWidget {
                             fontSize: Adaptive.sp(19),
                             fontWeight: FontWeight.w600),
                       ),
-                      IconButton(
-                        onPressed: () => null,
-                        icon: Icon(
-                          FontAwesomeIcons.heart,
-                          size: Adaptive.sp(22),
-                        ),
+                      LikeButton(
+                        animationDuration: Duration(milliseconds: 700),
+                        bubblesSize: 30,
+                        bubblesColor: BubblesColor(
+                            dotPrimaryColor: Colors.red,
+                            dotSecondaryColor: Colors.redAccent),
+                        size: buttonSize,
+                        likeCount: likeCount,
                       )
                     ],
                   )

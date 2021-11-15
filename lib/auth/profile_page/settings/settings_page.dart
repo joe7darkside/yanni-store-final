@@ -78,7 +78,7 @@ class Settings extends StatelessWidget {
                                 elevation: 10,
                                 shape: CircleBorder(),
                                 child: CircleAvatar(
-                                  radius: 40,
+                                  radius: 30,
                                   backgroundImage:
                                       AssetImage('assets/images/person.jpg'),
                                 ),
@@ -101,29 +101,38 @@ class Settings extends StatelessWidget {
                                   color: Colors.grey[600]),
                             ),
                           ),
-                          ListTile(
-                            title: Text(
-                              'Edit Profile',
-                              style:
-                                  GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                          InkWell(
+                            enableFeedback: true,
+                            child: ListTile(
+                              title: Text(
+                                'Edit Profile',
+                                style:
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                              ),
+                              trailing: Icon(FontAwesomeIcons.chevronRight),
                             ),
-                            trailing: Icon(FontAwesomeIcons.chevronRight),
                           ),
-                          ListTile(
-                            title: Text(
-                              'Change Password',
-                              style:
-                                  GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                          InkWell(
+                            enableFeedback: true,
+                            child: ListTile(
+                              title: Text(
+                                'Change Password',
+                                style:
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                              ),
+                              trailing: Icon(FontAwesomeIcons.chevronRight),
                             ),
-                            trailing: Icon(FontAwesomeIcons.chevronRight),
                           ),
-                          ListTile(
-                            title: Text(
-                              'Add a Payment Mathod',
-                              style:
-                                  GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                          InkWell(
+                            enableFeedback: true,
+                            child: ListTile(
+                              title: Text(
+                                'Add a Payment Mathod',
+                                style:
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                              ),
+                              trailing: Icon(FontAwesomeIcons.chevronRight),
                             ),
-                            trailing: Icon(FontAwesomeIcons.chevronRight),
                           ),
                           ListTile(
                             title: Text(
@@ -163,21 +172,27 @@ class Settings extends StatelessWidget {
                                   color: Colors.grey[600]),
                             ),
                           ),
-                          ListTile(
-                            title: Text(
-                              'About us',
-                              style:
-                                  GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                          InkWell(
+                            enableFeedback: true,
+                            child: ListTile(
+                              title: Text(
+                                'About us',
+                                style:
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                              ),
+                              trailing: Icon(FontAwesomeIcons.chevronRight),
                             ),
-                            trailing: Icon(FontAwesomeIcons.chevronRight),
                           ),
-                          ListTile(
-                            title: Text(
-                              'Privacy Policy',
-                              style:
-                                  GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                          InkWell(
+                            enableFeedback: true,
+                            child: ListTile(
+                              title: Text(
+                                'Privacy Policy',
+                                style:
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                              ),
+                              trailing: Icon(FontAwesomeIcons.chevronRight),
                             ),
-                            trailing: Icon(FontAwesomeIcons.chevronRight),
                           ),
                         ],
                       ),
