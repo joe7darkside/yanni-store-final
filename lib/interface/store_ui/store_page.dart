@@ -1,68 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-// import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:yanni_store/products/product_ui.dart';
+import 'package:yanni_store/products/dashboard/add/fetch_data_form_firebase.dart';
+import 'package:yanni_store/products/get_product_data.dart';
+import 'package:yanni_store/interface/store_ui/product_ui.dart';
 
-class ProductsPage extends StatelessWidget {
-  const ProductsPage({Key? key}) : super(key: key);
+class StorePage extends StatelessWidget {
+  FetchDataFromFirebase productDataController =
+      Get.put(FetchDataFromFirebase());
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
-      // appBar: AppBar(
-      //   leadingWidth: Adaptive.w(40),
-      //   toolbarHeight: 70,
-      //   backgroundColor: Colors.white,
-      //   elevation: 0.1,
-      //   leading: Padding(
-      //     padding: const EdgeInsets.only(left: 4, top: 2, bottom: 2),
-      //     child: Row(
-      //       children: const [
-      //         // Image.asset(
-      //         //   'assets/guitar.png',
-      //         //   width: 60,
-      //         //   height: 60,
-      //         // ),
-      //         // Spacer(),
-      //         // Text(
-      //         //   "Yanni\nStore",
-      //         //   style: TextStyle(
-      //         //       color: Colors.blue[900],
-      //         //       fontSize: 20,
-      //         //       fontWeight: FontWeight.w700),
-      //         // )
-      //       ],
-      //     ),
-      //   ),
-      //   actions: [
-      //     Padding(
-      //       padding: const EdgeInsets.all(10.0),
-      //       child: IconButton(
-      //           onPressed: () {},
-      //           icon: IconButton(
-      //             onPressed: () {},
-      //             icon: const Icon(FontAwesomeIcons.slidersH),
-      //             color: Colors.blue[900],
-      //           )),
-      //     ),
-      //     // Padding(
-      //     //   padding: const EdgeInsets.all(10.0),
-      //     //   child: IconButton(
-      //     //       onPressed: () {},
-      //     //       icon: IconButton(
-      //     //         onPressed: () {},
-      //     //         icon: const Icon(
-      //     //           Icons.shopping_cart_outlined,
-      //     //           size: 30,
-      //     //         ),
-      //     //         color: Colors.blue[700],
-      //     //       )),
-      //     // )
-      //   ],
-      // ),
       body: Padding(
         padding: const EdgeInsets.only(
           top: 15,
@@ -227,38 +179,20 @@ class ProductsPage extends StatelessWidget {
                 ],
               ),
             ),
-
-            // Container(
-            // padding: EdgeInsets.only(top: 20),
-            //     margin: EdgeInsets.only(top: 10),
-            //     width: Adaptive.w(100),
-            //     height: Adaptive.h(100),
-            //     child: GridView.count(
-            //       padding: EdgeInsets.only(top: 20),
-            //       physics: ScrollPhysics(),
-            //       shrinkWrap: true,
-            //       crossAxisCount: 2,
-            //       crossAxisSpacing: 0.0,
-            //       mainAxisSpacing: 60.0,
-            //       children: List.generate(
-            //         8,
-            //         (index) {
-            //           return const Center(
-            //             child: ProductUi(),
-
-            //           );
-            //         },
-            //         growable: true,
-            //       ),
-            //     )
             SizedBox(
               height: Adaptive.h(1),
             ),
             Flexible(
                 child: StaggeredGridView.countBuilder(
               crossAxisCount: 4,
-              itemCount: 8,
-              itemBuilder: (BuildContext context, int index) => ProductUi(),
+              itemCount: productDataController.title.length,
+              itemBuilder: (BuildContext context, int index) => StoreItemUi(
+                title: productDataController.title[index],
+                price: productDataController.price[index],
+                likes: productDataController.likes[index],
+                // images:[ productDataController.images.value[index]],
+                category: productDataController.category[index],
+              ),
               staggeredTileBuilder: (int index) =>
                   StaggeredTile.count(2, index.isEven ? 2.8 : 2.8),
               mainAxisSpacing: 4.0,

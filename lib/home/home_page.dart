@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:yanni_store/products/product_model.dart';
 
 class HomePage extends StatelessWidget {
-  final ProductModel controller=Get.put(ProductModel());
+  //  ProductModel controller=Get.put(ProductModel());
   final _lableStyle =
       GoogleFonts.firaSans(fontSize: 22, fontWeight: FontWeight.w600);
   final _buttonStyle = GoogleFonts.lato(

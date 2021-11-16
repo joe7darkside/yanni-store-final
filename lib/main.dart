@@ -25,10 +25,11 @@ import 'auth/auth_page.dart';
 // import 'categories/violin.dart';
 // import 'interface/product_page/product_page.dart';
 import 'auth/profile_page/settings/settings_page.dart';
-import 'interface/products_page.dart';
+import 'store/store_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
 import 'products/dashboard/add/add_products.dart';
 import 'products/dashboard/add/dashboard.dart';
+import 'products/dashboard/add/fetch_data_form_firebase.dart';
 import 'products/product_ui.dart';
 
 void main() async {
@@ -38,6 +39,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final FetchDataFromFirebase controller=Get.put(FetchDataFromFirebase());
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
