@@ -5,7 +5,7 @@ import 'package:yanni_store/auth/auth_page.dart';
 
 import 'package:yanni_store/interface/cart_page/cart_page.dart';
 import 'package:yanni_store/home/home_page.dart';
-import 'package:yanni_store/store/store_page.dart';
+import 'package:yanni_store/interface/store_ui/store_page.dart';
 import 'botton_nav_bar.dart';
 import 'nav_controller.dart';
 

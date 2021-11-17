@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/products/dashboard/add/fetch_data_form_firebase.dart';
 import 'package:yanni_store/products/get_product_data.dart';
-import 'package:yanni_store/interface/store_ui/product_ui.dart';
+import 'package:yanni_store/interface/store_ui/products/product_ui.dart';
 
 class StorePage extends StatelessWidget {
   FetchDataFromFirebase productDataController =
@@ -12,6 +12,7 @@ class StorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(productDataController.images[1][0]);
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
@@ -186,11 +187,13 @@ class StorePage extends StatelessWidget {
                 child: StaggeredGridView.countBuilder(
               crossAxisCount: 4,
               itemCount: productDataController.title.length,
-              itemBuilder: (BuildContext context, int index) => StoreItemUi(
+              itemBuilder: (BuildContext context, int index) => ItemCard(
+                rating: productDataController.rating[index],
+                descraption: productDataController.descraption[index],
                 title: productDataController.title[index],
                 price: productDataController.price[index],
                 likes: productDataController.likes[index],
-                // images:[ productDataController.images.value[index]],
+                images: productDataController.images[index][0],
                 category: productDataController.category[index],
               ),
               staggeredTileBuilder: (int index) =>

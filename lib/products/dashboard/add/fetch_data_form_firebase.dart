@@ -6,6 +6,7 @@ class FetchDataFromFirebase extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final title = [].obs;
   final price = [].obs;
+  final rating = [].obs;
   final likes = [].obs;
   final images = [].obs;
   final category = [].obs;
@@ -25,6 +26,7 @@ class FetchDataFromFirebase extends GetxController {
         descraption.value.add(result.get('descraption'));
         images.value.add(result.get('image'));
         category.value.add(result.get('category'));
+        rating.value.add(result.get('rating'));
 
         print('$title\n $likes\n $price\n $images\n $category');
       }

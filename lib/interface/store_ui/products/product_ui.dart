@@ -1,29 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:like_button/like_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class StoreItemUi extends StatelessWidget {
-  StoreItemUi(
+class ItemCard extends StatelessWidget {
+  ItemCard(
       {Key? key,
       required this.title,
       required this.price,
       required this.likes,
-      // required this.path,
+      required this.descraption,
+      required this.rating,
       this.images,
       required this.category})
       : super(key: key);
+  String? descraption;
   final String? title;
   final int? price;
-  final int? likes;
-  final List<String>? images;
+  final bool? likes;
+  final String? images;
+  final int? rating;
   final String? category;
   var likeCount = 15;
   var buttonSize = 30.0;
   @override
   Widget build(BuildContext context) {
+    var url = Uri.parse("$images");
+    print(url);
+
     return GestureDetector(
-      onTap: () => null,
+      onTap: () => Get.toNamed('/productUi', arguments: [
+        title,
+        category,
+        likes,
+        images,
+        price,
+        descraption,
+        rating
+      ]),
       child: Container(
           decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -40,12 +55,12 @@ class StoreItemUi extends StatelessWidget {
               Container(
                 width: Adaptive.w(45),
                 height: Adaptive.h(22.5),
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/22.jpg'),
+                      image: NetworkImage('$url'),
                       fit: BoxFit.fill,
                     ),
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(14),
                         topRight: Radius.circular(14),
                         bottomLeft: Radius.circular(14),
@@ -80,13 +95,13 @@ class StoreItemUi extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                         ),
                         LikeButton(
-                          animationDuration: Duration(milliseconds: 700),
+                          animationDuration: const Duration(milliseconds: 700),
                           bubblesSize: 30,
-                          bubblesColor: BubblesColor(
+                          bubblesColor: const BubblesColor(
                               dotPrimaryColor: Colors.red,
                               dotSecondaryColor: Colors.redAccent),
                           size: buttonSize,
-                          likeCount: likes,
+                          // likeCount: likes,
                         )
                       ],
                     )

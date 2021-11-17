@@ -25,12 +25,13 @@ import 'auth/auth_page.dart';
 // import 'categories/violin.dart';
 // import 'interface/product_page/product_page.dart';
 import 'auth/profile_page/settings/settings_page.dart';
-import 'store/store_page.dart';
+import 'interface/store_ui/products/product_page.dart';
+import 'interface/store_ui/store_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
 import 'products/dashboard/add/add_products.dart';
 import 'products/dashboard/add/dashboard.dart';
 import 'products/dashboard/add/fetch_data_form_firebase.dart';
-import 'products/product_ui.dart';
+import 'interface/store_ui/products/product_ui.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +40,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final FetchDataFromFirebase controller=Get.put(FetchDataFromFirebase());
+  final FetchDataFromFirebase controller = Get.put(FetchDataFromFirebase());
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
@@ -53,8 +54,8 @@ class MyApp extends StatelessWidget {
             GetPage(name: "/auth", page: () => AuthPage()),
             GetPage(name: "/settings", page: () => Settings()),
             GetPage(name: "/register", page: () => RegisterPage()),
-            GetPage(name: "/forgot", page: () => ForgotPasswordPage())
-            // GetPage(name: "/one", page: () => AcousticGuitarPage()),
+            GetPage(name: "/forgot", page: () => ForgotPasswordPage()),
+            GetPage(name: '/productUi', page: () => ProductPage()),
             // GetPage(name: "/two", page: () => ClassicGuitarPage()),
             // GetPage(name: "/three", page: () => ElectricGuitarPage()),
             // GetPage(name: "/four", page: () => DrumsPage()),
