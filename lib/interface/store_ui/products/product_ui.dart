@@ -95,6 +95,7 @@ class ItemCard extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                         ),
                         LikeButton(
+                          isLiked: likes,
                           animationDuration: const Duration(milliseconds: 700),
                           bubblesSize: 30,
                           bubblesColor: const BubblesColor(

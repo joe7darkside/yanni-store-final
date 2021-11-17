@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/products/dashboard/add/fetch_data_form_firebase.dart';
-import 'package:yanni_store/products/get_product_data.dart';
 import 'package:yanni_store/interface/store_ui/products/product_ui.dart';
+import 'package:yanni_store/utils/images.dart';
+import 'categories/category_item_selecter.dart';
 
 class StorePage extends StatelessWidget {
   FetchDataFromFirebase productDataController =
@@ -12,177 +12,19 @@ class StorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(productDataController.images[1][0]);
     return SafeArea(
         child: Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(
-          top: 15,
+          top: 20,
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                    // height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                    // height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                    // height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                    // height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                    // height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            // color: Colors.grey[800],
-                            width: 35,
-                          ),
-                        )),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                    // height: 20,
-                  ),
-                  GestureDetector(
-                    onTap: () => print('works'),
-                    child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        color: Colors.blue,
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset(
-                            'assets/images/add.png',
-                            width: 35,
-                          ),
-                        )),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: Adaptive.h(1),
-            ),
+            Flexible(child: HorizList()),
+            // SizedBox(
+            //   height: Adaptive.h(0),
+            // ),
             Flexible(
                 child: StaggeredGridView.countBuilder(
               crossAxisCount: 4,
@@ -200,24 +42,30 @@ class StorePage extends StatelessWidget {
                   StaggeredTile.count(2, index.isEven ? 2.8 : 2.8),
               mainAxisSpacing: 4.0,
               crossAxisSpacing: 4.0,
-            )
-                // GridView.builder(
-                //   itemCount: 8,
-                //   itemBuilder: (context, index) {
-                //     return const ProductUi();
-                //   },
-                //   physics: const AlwaysScrollableScrollPhysics(),
-                //   shrinkWrap: true,
-                //   padding: const EdgeInsets.only(top: 20),
-                //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                //     mainAxisExtent: Adaptive.h(34),
-                //     crossAxisCount: 2,
-                //   ),
-                // ),
-                )
+            ))
           ],
         ),
       ),
     ));
+  }
+}
+
+class HorizList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 70.0,
+      child: ListView.builder(
+        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        itemCount: categoryIcons.length,
+        itemBuilder: (context, index) {
+          return CategoryItemsSelecter(
+            image: categoryIcons[index],
+            onClick: index,
+          );
+        },
+        scrollDirection: Axis.horizontal,
+      ),
+    );
   }
 }

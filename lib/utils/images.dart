@@ -34,5 +34,28 @@ const google_icon = 'assets/images/search.png';
 const facebook_icon = 'assets/images/facebook.png';
 const twitter_icon = 'assets/images/twitter.png';
 const admin_image = 'assets/images/admin.png';
-
+const path = 'assets/icons';
 const emptyCart = 'assets/svg/empty_cart.svg';
+const List<String> categoryIcons = [
+  'All',
+  '$path/bass.png',
+  '$path/guitar.png',
+  '$path/piano.png',
+  '$path/drum.png',
+  '$path/accordion.png',
+  '$path/viola.png',
+  '$path/drums.png',
+  '$path/saxophone.png',
+  '$path/keyboard.png',
+  '$path/trumpet.png',
+  '$path/flute.png',
+  '$path/clarinet.png',
+  '$path/tambourine.png',
+  '$path/lute.png',
+  '$path/xylophone.png',
+  '$path/melodica.png',
+  '$path/harmonica.png',
+  '$path/sitar.png',
+  '$path/nai.png',
+  '$path/djembe.png',
+];
