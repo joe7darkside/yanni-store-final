@@ -18,7 +18,7 @@ class AnimationsController extends GetxController
     degreeOneTranslationAnimation =
         Tween(begin: 0.0, end: 1.0).animate(animationControllers!);
     super.onInit();
-    rotationController = Tween(begin: 180.0, end: 0.0).animate(
+    rotationController = Tween(begin: 360.0, end: 0.0).animate(
         CurvedAnimation(parent: animationControllers!, curve: Curves.easeOut));
     animationControllers!.addListener(() {
       update();

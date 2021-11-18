@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class FetchDataFromFirebase extends GetxController {
+class FetchProductsController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final title = [].obs;
   final price = [].obs;
@@ -19,7 +19,6 @@ class FetchDataFromFirebase extends GetxController {
 
     productsCollection.get().then((querySnapshot) {
       for (var result in querySnapshot.docs) {
-        // print(result.get('title'));
         title.value.add(result.get('title'));
         likes.value.add(result.get('likes'));
         price.value.add(result.get('price'));

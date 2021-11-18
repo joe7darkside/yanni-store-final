@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yanni_store/cards/card_model.dart';
-import 'package:yanni_store/rating_star/rating_star.dart';
+import 'package:yanni_store/products/rating_star/ui/rating_star.dart';
 
 class CustomCard extends StatelessWidget {
   CustomCard(

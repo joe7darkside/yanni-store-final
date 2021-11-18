@@ -3,8 +3,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:like_button/like_button.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:yanni_store/products/rating_star/raing_controller.dart';
-import 'package:yanni_store/products/rating_star/rating_star.dart';
+import 'package:yanni_store/products/rating_star/logic/raing_controller.dart';
+import 'package:yanni_store/products/rating_star/logic/rating_star_model.dart';
+
 
 //? complete the product page as sliver
 class ProductPage extends StatelessWidget {

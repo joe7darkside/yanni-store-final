@@ -58,7 +58,7 @@ class ItemCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage('$url'),
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                     ),
                     borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(14),

@@ -14,7 +14,7 @@ import 'profile_page/profile.dart';
 
 class AuthPage extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
-  final FirebaseController controller = Get.put(FirebaseController());
+  // final FirebaseController controller = Get.put(FirebaseController());
   final ConnectivityController connectivityController =
       Get.put(ConnectivityController());
 

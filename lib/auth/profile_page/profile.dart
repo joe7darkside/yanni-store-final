@@ -8,7 +8,7 @@ import 'custem_container.dart';
 
 class Profile extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
-  final FirebaseController firebaseController = Get.put(FirebaseController());
+  // final FirebaseController firebaseController = Get.put(FirebaseController());
 
   @override
   Widget build(BuildContext context) {

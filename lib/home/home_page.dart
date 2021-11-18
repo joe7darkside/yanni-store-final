@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:yanni_store/products/product_model.dart';
 
 class HomePage extends StatelessWidget {
   //  ProductModel controller=Get.put(ProductModel());
@@ -18,6 +17,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: ListView(
+        shrinkWrap: true,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,9 +45,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           Container(
-            // margin: EdgeInsets.only(left: 12, right: 12),
             height: 272,
-            // width: 300,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [],

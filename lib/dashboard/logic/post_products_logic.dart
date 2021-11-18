@@ -6,21 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class GetProductDataController extends GetxController {
+class PostProductController extends GetxController {
   final TextEditingController title = TextEditingController();
   final TextEditingController category = TextEditingController();
   final TextEditingController descraption = TextEditingController();
   final TextEditingController price = TextEditingController();
-  // final TextEditingController quantity = TextEditingController();
+  final int rating = 0;
+  final bool isLike = false;
 
-  // var id = 0.obs;
-  // var title = ''.obs;
-  // var price = ''.obs;
   var image = ''.obs;
-  // var rating = 0.obs;
-  // var selectedConut = 1.obs;
-  // var quantity = 0.obs;
   var returnURL;
+  List<File> _images = [];
   final CollectionReference _firestore =
       FirebaseFirestore.instance.collection('products');
   DocumentReference imageRef = FirebaseFirestore.instance
@@ -28,7 +24,6 @@ class GetProductDataController extends GetxController {
       .doc('piano')
       .collection('piano-products')
       .doc();
-  List<File> _images = [];
 
   Future getImage(bool gallery) async {
     ImagePicker picker = ImagePicker();
@@ -53,19 +48,6 @@ class GetProductDataController extends GetxController {
     update();
   }
 
-  Future<void> saveImages() async {
-    _images.forEach((image) async {
-      String imageURL = await uploadFile(image);
-      imageRef.set({
-        "title": title.text,
-        "descraption": descraption.text,
-        "price": price.text,
-        "category": category.text,
-        "image": FieldValue.arrayUnion([imageURL])
-      });
-    });
-  }
-
   Future<String> uploadFile(File _image) async {
     var storageReference =
         FirebaseStorage.instance.ref().child('image/${basename(_image.path)}');
@@ -79,28 +61,18 @@ class GetProductDataController extends GetxController {
     return returnURL;
   }
 
-//   Future<void> downloadURLExample() async {
-//     String downloadURL = await FirebaseStorage.instance
-//         .ref('users/123/avatar.jpg')
-//         .getDownloadURL();
-//? Within your widgets:
-//? Image.network(downloadURL);
-//   }
-
-  readItems() {
-    CollectionReference notesItemCollection =
-        _firestore.doc('piano').collection('piano-products');
-
-    notesItemCollection.get().then((querySnapshot) {
-      for (var result in querySnapshot.docs) {
-        print(result.data());
-      }
+  Future<void> saveImages() async {
+    _images.forEach((image) async {
+      String imageURL = await uploadFile(image);
+      imageRef.set({
+        "title": title.text,
+        "rating": rating,
+        "price": price.text,
+        "descraption": descraption.text,
+        "category": category.text,
+        "likes": isLike,
+        "image": FieldValue.arrayUnion([imageURL])
+      });
     });
   }
-
-  // @override
-  // onInit() {
-  //   readItems();
-  //   super.onInit();
-  // }
 }
