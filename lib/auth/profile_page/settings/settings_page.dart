@@ -60,6 +60,8 @@ class ProfileSettings extends StatelessWidget {
                               bottomLeft: Radius.circular(0),
                               bottomRight: Radius.circular(0))),
                       child: ListView(
+                        physics: const AlwaysScrollableScrollPhysics(
+                            parent: BouncingScrollPhysics()),
                         // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(

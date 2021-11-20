@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
-import 'package:yanni_store/auth/profile_page/settings/toggle_controller.dart';
 
 class ToggleBotton extends StatelessWidget {
   ToggleBotton({this.isToggled, this.toggleButton});
