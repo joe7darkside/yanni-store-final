@@ -78,6 +78,7 @@ class AuthController extends GetxController {
         await user
             .sendEmailVerification()
             .whenComplete(() => userLogin.value = user);
+        userLogin.value = user;
       } else {
         //* Do nothing
       }

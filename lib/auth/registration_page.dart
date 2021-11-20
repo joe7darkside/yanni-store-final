@@ -8,6 +8,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/auth/auth_controller.dart';
 
 import 'profile_page/profile.dart';
+import 'profile_page/settings/settings_page.dart';
 
 class RegisterPage extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
@@ -15,8 +16,11 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final name = authController.userLogin.value?.displayName;
+    final image = authController.userLogin.value?.photoURL;
+    final email = authController.userLogin.value?.email;
     return Obx(() => authController.userLogin.value != null
-        ? Profile()
+        ? ProfileSettings(name: name, image: image, email: email)
         : Scaffold(
             body: SingleChildScrollView(
             child: Column(
