@@ -12,16 +12,16 @@ import '../connection_controller.dart';
 import 'auth_controller.dart';
 import 'profile_page/profile.dart';
 
-class AuthPage extends StatelessWidget {
-  final AuthController authController = Get.put(AuthController());
-  // final FirebaseController controller = Get.put(FirebaseController());
-  final ConnectivityController connectivityController =
-      Get.put(ConnectivityController());
+// class AuthPage extends StatelessWidget {
+//   final AuthController authController = Get.put(AuthController());
+//   // final FirebaseController controller = Get.put(FirebaseController());
+//   final ConnectivityController connectivityController =
+//       Get.put(ConnectivityController());
 
-  @override
-  Widget build(BuildContext context) {
-    return Obx(() => authController.isLogin.value ? Profile() : SignInPage());
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Obx(() => authController.isLogin.value ? Profile() : SignInPage());
+//   }
 
   // Widget profile() {
   //   return Scaffold(
@@ -507,4 +507,4 @@ class AuthPage extends StatelessWidget {
   //       // )
   //       );
   // }
-}
+// }

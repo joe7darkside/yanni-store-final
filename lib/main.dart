@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/accuonts/forgot_password_page.dart';
+import 'package:yanni_store/auth/signin_page.dart';
 import 'package:yanni_store/dashboard/add_product/ui/post_products_ui.dart';
 import 'package:yanni_store/dashboard/dashboard.dart';
 import 'auth/Registration_page.dart';
@@ -27,15 +28,16 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.light,
           darkTheme: ThemeData.dark(),
           theme: ThemeData.light(),
-          home: Dashboard(),
+          home: SplashScreen(),
           debugShowCheckedModeBanner: false,
           getPages: [
-            GetPage(name: "/auth", page: () => AuthPage()),
+            GetPage(name: "/auth", page: () => SignInPage()),
             GetPage(name: "/settings", page: () => Settings()),
             GetPage(name: "/register", page: () => RegisterPage()),
             GetPage(name: "/forgot", page: () => ForgotPasswordPage()),
             GetPage(name: '/productUi', page: () => ProductPage()),
-            GetPage(name: '/AddProduct', page: () => AddProduct())
+            GetPage(name: '/AddProduct', page: () => AddProduct()),
+
           ]);
     });
   }

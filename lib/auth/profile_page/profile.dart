@@ -66,23 +66,28 @@ class Profile extends StatelessWidget {
           SizedBox(
             height: Adaptive.h(3),
           ),
-          CustemContainer(path:'' ,
+          CustemContainer(
+            path: '',
             tilte: "Shopping Address",
             icon: Icons.location_on_outlined,
           ),
-          CustemContainer(path:'' ,
+          CustemContainer(
+            path: '',
             tilte: "Payments",
             icon: Icons.payment,
           ),
-          CustemContainer(path: '',
+          CustemContainer(
+            path: '',
             tilte: "My Orders",
             icon: Icons.shopping_cart_outlined,
           ),
-          CustemContainer(path: "/settings",
+          CustemContainer(
+            path: "/settings",
             tilte: "Settings",
             icon: Icons.settings,
           ),
-          CustemContainer(path: '',
+          CustemContainer(
+            path: '',
             tilte: "favourites",
             icon: Icons.favorite_border,
           ),
@@ -93,7 +98,7 @@ class Profile extends StatelessWidget {
             color: Colors.redAccent,
           ),
           GestureDetector(
-            onTap: () => authController.signout(),
+            onTap: () => authController.signOut(),
             child: Container(
               height: Adaptive.h(7),
               child: Row(

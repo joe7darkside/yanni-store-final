@@ -15,7 +15,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => authController.isLogin.value
+    return Obx(() => authController.userLogin.value != null
         ? Profile()
         : Scaffold(
             body: SingleChildScrollView(
@@ -143,8 +143,8 @@ class RegisterPage extends StatelessWidget {
                                               BorderRadius.circular(8.0),
                                           side: BorderSide(color: Colors.red),
                                         ),
-                                        onPressed: () =>
-                                            authController.create(),
+                                        onPressed: () => authController
+                                            .registerWithEmailAndPassword(),
                                         child: Text("Create"),
                                       ),
                                     ),

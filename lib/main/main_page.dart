@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:yanni_store/auth/auth_page.dart';
+import 'package:yanni_store/auth/signin_page.dart';
 
 import 'package:yanni_store/interface/cart_page/cart_page.dart';
 import 'package:yanni_store/home/home_page.dart';
@@ -28,7 +29,7 @@ class MainPage extends StatelessWidget {
        HomePage(),
        StorePage(),
       const CartPage(),
-      AuthPage(),
+      SignInPage(),
     ];
     return IndexedStack(
       index: navController.tabIndex,
