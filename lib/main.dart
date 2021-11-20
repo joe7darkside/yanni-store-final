@@ -12,7 +12,7 @@ import 'auth/profile_page/settings/settings_page.dart';
 import 'dashboard/logic/fetch_products.dart';
 import 'interface/store/products/product_page.dart';
 import 'interface/splash_screen/splash_screen.dart';
-
+import 'utils/theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -25,14 +25,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return GetMaterialApp(
-          themeMode: ThemeMode.light,
-          darkTheme: ThemeData.dark(),
-          theme: ThemeData.light(),
+          // themeMode: hemes.light,
+          darkTheme: Themes.dark,
+          theme: Themes.light,
           home: SplashScreen(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/auth", page: () => SignInPage()),
-            GetPage(name: "/settings", page: () => Settings()),
+            GetPage(name: "/ProfileSettings", page: () => ProfileSettings()),
             GetPage(name: "/register", page: () => RegisterPage()),
             GetPage(name: "/forgot", page: () => ForgotPasswordPage()),
             GetPage(name: '/productUi', page: () => ProductPage()),

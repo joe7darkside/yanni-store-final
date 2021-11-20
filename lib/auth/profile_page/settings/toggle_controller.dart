@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ToggleController extends GetxController {
@@ -10,5 +11,10 @@ class ToggleController extends GetxController {
 
   void toggleButton2() {
     toggleValue2.value = !toggleValue2.value;
+    if (!toggleValue2.value) {
+      Get.changeThemeMode(ThemeMode.light);
+    } else {
+      Get.changeThemeMode(ThemeMode.dark);
+    }
   }
 }

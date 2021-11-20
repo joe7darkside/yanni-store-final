@@ -6,9 +6,16 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/auth/profile_page/settings/toggle_button.dart';
 import 'package:yanni_store/auth/profile_page/settings/toggle_controller.dart';
 
-class Settings extends StatelessWidget {
-  final ToggleController toggleController = Get.put(ToggleController());
+import '../../auth_controller.dart';
 
+class ProfileSettings extends StatelessWidget {
+  ProfileSettings({this.name, this.image, this.email});
+  final AuthController authController = Get.put(AuthController());
+
+  final ToggleController toggleController = Get.put(ToggleController());
+  final String? name;
+  final String? image;
+  final String? email;
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
@@ -16,22 +23,16 @@ class Settings extends StatelessWidget {
             alignment: Alignment.topCenter,
             children: [
               Container(
-                width: Adaptive.w(100),
-                height: Adaptive.h(45),
-                decoration: BoxDecoration(
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0.0, 0.4),
-                        blurRadius: 2.0,
-                      ),
-                    ],
-                    color: Colors.blue[400],
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(0),
-                        topRight: Radius.circular(0),
-                        bottomLeft: Radius.circular(20),
-                        bottomRight: Radius.circular(20))),
+                width: double.infinity,
+                height: Adaptive.h(40),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage('assets/images/bg.jpg'),
+                        fit: BoxFit.fill),
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(50),
+                        bottomRight: Radius.circular(50))),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,25 +63,33 @@ class Settings extends StatelessWidget {
                         // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(bottom: 10),
+                            padding: EdgeInsets.only(bottom: 5),
                             child: ListTile(
                               subtitle: Text(
-                                'jo2014saleh@gmail.com',
+                                '$email',
                                 style:
-                                    GoogleFonts.lato(fontSize: Adaptive.sp(16)),
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(17)),
                               ),
                               title: Text(
-                                'Yennefer dou',
+                                '$name',
                                 style:
-                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(19)),
                               ),
                               leading: const Card(
-                                elevation: 10,
+                                elevation: 7,
                                 shape: CircleBorder(),
                                 child: CircleAvatar(
                                   radius: 30,
                                   backgroundImage:
                                       AssetImage('assets/images/person.jpg'),
+                                ),
+                              ),
+                              trailing: IconButton(
+                                onPressed: () => authController.signOut(),
+                                icon: Icon(
+                                  Icons.login_outlined,
+                                  size: 30,
+                                  color: Colors.red[300],
                                 ),
                               ),
                             ),

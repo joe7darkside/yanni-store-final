@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -7,8 +8,12 @@ import 'package:yanni_store/firebase_data/firebase_store.dart';
 import 'custem_container.dart';
 
 class Profile extends StatelessWidget {
+  Profile({this.name, this.image, this.email});
   final AuthController authController = Get.put(AuthController());
   // final FirebaseController firebaseController = Get.put(FirebaseController());
+  final String? name;
+  final String? image;
+  final String? email;
 
   @override
   Widget build(BuildContext context) {
@@ -40,22 +45,42 @@ class Profile extends StatelessWidget {
                 SizedBox(
                   height: Adaptive.h(6),
                 ),
-                const CircleAvatar(
-                  // child: Icon(Icons.edit),
-                  backgroundImage: AssetImage('assets/images/person.jpg'),
-                  radius: 62,
+                Stack(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.grey,
+                      backgroundImage: image != null
+                          ? NetworkImage("$image")
+                          : NetworkImage(
+                              'https://firebasestorage.googleapis.com/v0/b/yanni-store-2fe63.appspot.com/o/image%2Fprofile.png?alt=media&token=a95fcd5b-d6f1-4d43-82b6-ed55854bf10a'),
+                      radius: 62,
+                    ),
+                    Positioned(
+                        bottom: 1,
+                        right: 1,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle, color: Colors.white),
+                          child: IconButton(
+                            icon: Icon(Icons.edit),
+                            onPressed: () => null,
+                          ),
+                        ))
+                  ],
                 ),
                 SizedBox(
                   height: Adaptive.h(2),
                 ),
                 Text(
-                  '${authController.googleSignInAccount.value?.displayName ?? ''}',
+                  '$name',
                   style: GoogleFonts.lato(
                       color: Colors.grey[800],
                       fontWeight: FontWeight.bold,
                       fontSize: 24),
                 ),
-                Text('${authController.googleSignInAccount.value?.email ?? ''}',
+                Text('$email',
                     style: GoogleFonts.lato(
                         color: Colors.grey[800],
                         fontWeight: FontWeight.w500,
