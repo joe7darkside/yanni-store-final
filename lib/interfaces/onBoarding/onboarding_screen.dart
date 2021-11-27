@@ -1,0 +1,122 @@
+// ignore_for_file: file_names
+
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:onboarding/onboarding.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:yanni_store/interfaces/main/main_page.dart';
+
+// import 'package:shared_preferences/shared_preferences.dart';
+
+class OnBoarding extends StatelessWidget {
+  OnBoarding({Key? key}) : super(key: key);
+  // _storeOnboardInfo() async {
+  //   print("Shared pref called");
+  //   int isViewed = 0;
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   await prefs.setInt('onBoard', isViewed);
+  //   print(prefs.getInt('onBoard'));
+  // }
+  final onboardingPagesList = [
+    PageModel(
+      widget: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          SvgPicture.asset(
+            'assets/onBoarding/music.svg',
+            height: Adaptive.h(40),
+            width: Adaptive.h(50),
+          ),
+          const Spacer(),
+          const SizedBox(
+              width: double.infinity,
+              child: Text('WELCOME TO YANNI', style: pageTitleStyle)),
+          Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            width: double.infinity,
+            child: const Text(
+              'Home of music and playing instruments',
+              style: pageInfoStyle,
+            ),
+          ),
+        ],
+      ),
+    ),
+    PageModel(
+      widget: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          SvgPicture.asset(
+            'assets/onBoarding/online_shoping.svg',
+            height: Adaptive.h(40),
+            width: Adaptive.h(50),
+          ),
+          const Spacer(),
+          const SizedBox(
+              width: double.infinity,
+              child: Text('ANYTHING YOU NEED', style: pageTitleStyle)),
+          Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            width: double.infinity,
+            child: const Text(
+              'Wide variety of Music instrument ',
+              style: pageInfoStyle,
+            ),
+          ),
+        ],
+      ),
+    ),
+    PageModel(
+      widget: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          SvgPicture.asset(
+            'assets/onBoarding/delivery.svg',
+            height: Adaptive.h(40),
+            width: Adaptive.h(50),
+          ),
+          const Spacer(),
+          const SizedBox(
+              width: double.infinity,
+              child: Text('TO YOUR DOORSTEP', style: pageTitleStyle)),
+          Container(
+            margin: const EdgeInsets.only(bottom: 20),
+            width: double.infinity,
+            child: const Text(
+              'Fast delivery time to your doorstep',
+              style: pageInfoStyle,
+            ),
+          ),
+        ],
+      ),
+    ),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Onboarding(
+        background: Colors.white,
+        skipButtonStyle: const SkipButtonStyle(),
+        proceedButtonStyle: ProceedButtonStyle(proceedButtonRoute: (context) {
+          // _storeOnboardInfo();
+          return Get.offAll(() => MainScreen());
+        }),
+        pages: onboardingPagesList,
+        indicator: Indicator(
+          indicatorDesign: IndicatorDesign.line(
+            lineDesign: LineDesign(
+              lineType: DesignType.line_uniform,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
