@@ -84,12 +84,10 @@ flutter:
   assets:
    
     - assets/logo/
-    - assets/auth/
-    - assets/onBoarding/
+
     - assets/images/
-    - assets/social/
-    - assets/svg/
-    - assets/icons/
+    
+  
 
   #   - images/a_dot_ham.jpeg
 

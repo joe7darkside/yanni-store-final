@@ -5,6 +5,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yanni_store/interfaces/auth/registration_screen.dart';
 import 'package:yanni_store/interfaces/dashboard/post_products_ui.dart';
+import 'package:yanni_store/widgets/skeleton_loader/skeleton_loader.dart';
 import 'controllers/get_products.dart';
 import 'interfaces/auth/forgot_password_page.dart';
 import 'interfaces/auth/signin_screen.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
           // themeMode: hemes.light,
           darkTheme: Themes.dark,
           theme: Themes.light,
-          home: const SplashScreen(),
+          home:  Skeleton(),
           debugShowCheckedModeBanner: false,
           getPages: [
             GetPage(name: "/auth", page: () => SigninScreen()),
