@@ -2,8 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:yanni_store/interfaces/auth/registration_screen.dart';
 import 'package:yanni_store/interfaces/dashboard/post_products_ui.dart';
-import 'auth/Registration_page.dart';
 import 'controllers/get_products.dart';
 import 'interfaces/auth/forgot_password_page.dart';
 import 'interfaces/auth/signin_screen.dart';
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           getPages: [
             GetPage(name: "/auth", page: () => SigninScreen()),
             GetPage(name: "/ProfileSettings", page: () => ProfileScreen()),
-            GetPage(name: "/register", page: () => RegisterPage()),
+            GetPage(name: "/register", page: () => RegisterScreen()),
             GetPage(name: "/forgot", page: () => ForgotPasswordScreen()),
             GetPage(name: '/productUi', page: () => ProductScreen()),
             GetPage(name: '/AddProduct', page: () => PostProduct()),
