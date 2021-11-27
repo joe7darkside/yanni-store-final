@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:yanni_store/interfaces/main/main_page.dart';
 import 'package:yanni_store/interfaces/onBoarding/onboarding_screen.dart';
+
+import '../../main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -30,7 +33,9 @@ class _SplashScreenState extends State<SplashScreen>
           (value) => Future.delayed(const Duration(seconds: 1)).then(
             (value) => _lottieAnimation.forward().then(
                   (value) => Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => OnBoarding()),
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              isviewed != 0 ? OnBoarding() : MainScreen()),
                       (route) => false),
                 ),
           ),

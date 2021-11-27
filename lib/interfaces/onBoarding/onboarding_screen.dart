@@ -1,23 +1,20 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:onboarding/onboarding.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yanni_store/interfaces/main/main_page.dart';
-
-// import 'package:shared_preferences/shared_preferences.dart';
+import '../../main.dart';
 
 class OnBoarding extends StatelessWidget {
   OnBoarding({Key? key}) : super(key: key);
-  // _storeOnboardInfo() async {
-  //   print("Shared pref called");
-  //   int isViewed = 0;
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   await prefs.setInt('onBoard', isViewed);
-  //   print(prefs.getInt('onBoard'));
-  // }
+  _storeOnboardInfo() async {
+    isviewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isviewed!);
+  }
+
   final onboardingPagesList = [
     PageModel(
       widget: Column(
@@ -105,7 +102,7 @@ class OnBoarding extends StatelessWidget {
         background: Colors.white,
         skipButtonStyle: const SkipButtonStyle(),
         proceedButtonStyle: ProceedButtonStyle(proceedButtonRoute: (context) {
-          // _storeOnboardInfo();
+          _storeOnboardInfo();
           return Get.offAll(() => MainScreen());
         }),
         pages: onboardingPagesList,
