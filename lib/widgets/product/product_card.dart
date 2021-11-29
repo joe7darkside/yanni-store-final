@@ -7,6 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class ProductCard extends StatelessWidget {
   ProductCard(
       {Key? key,
+      required this.number,
       required this.title,
       required this.price,
       required this.likes,
@@ -15,9 +16,11 @@ class ProductCard extends StatelessWidget {
       this.images,
       required this.category})
       : super(key: key);
+
   String? descraption;
   final String? title;
   final int? price;
+  final int? number;
   final bool? likes;
   final String? images;
   final int? rating;
@@ -37,7 +40,8 @@ class ProductCard extends StatelessWidget {
         images,
         price,
         descraption,
-        rating
+        rating,
+        number
       ]),
       child: Container(
           decoration: const BoxDecoration(
@@ -52,19 +56,22 @@ class ProductCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: Adaptive.w(45),
-                height: Adaptive.h(22.5),
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage('$url'),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(14),
-                        topRight: Radius.circular(14),
-                        bottomLeft: Radius.circular(14),
-                        bottomRight: Radius.circular(14))),
+              Hero(
+                tag: 'image$number',
+                child: Container(
+                  width: Adaptive.w(45),
+                  height: Adaptive.h(22.5),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage('$url'),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(14),
+                          topRight: Radius.circular(14),
+                          bottomLeft: Radius.circular(14),
+                          bottomRight: Radius.circular(14))),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10, left: 10, right: 10),

@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/controllers/post_products_logic.dart';
+import 'package:yanni_store/utils/images.dart';
 
 class PostProduct extends StatelessWidget {
   final PostProductController postProductController =
@@ -32,23 +33,26 @@ class PostProduct extends StatelessWidget {
       FormBuilderValidators.maxLength(context, 50),
     ]);
     return SafeArea(
-      child: Scaffold(
+        child: Obx(
+      () => Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () => postProductController.getImage(true),
           child: const Icon(FontAwesomeIcons.images),
-          backgroundColor: Color.fromRGBO(0, 191, 166, 1),
+          backgroundColor: const Color.fromRGBO(0, 191, 166, 1),
         ),
         body: ListView(
           children: [
             SizedBox(height: Adaptive.h(7)),
-            // GetBuilder<ProductModel>(builder: (value) {
-            //   return Image.file(productModle.images[1]);
-            // }),
-            // Image.file((productModle.images.value[0]),width:Adaptive.w(45) ,),
-            SvgPicture.asset(
-              'assets/images/add.svg',
-              width: Adaptive.w(45),
-            ),
+            postProductController.image.isEmpty
+                ? SvgPicture.asset(
+                    postItemImage,
+                    width: Adaptive.w(50),
+                  )
+                : Image.file(
+                    postProductController.image[0],
+                    // width: Adaptive.w(20),
+                    height: Adaptive.w(50),
+                  ),
             FormBuilder(
                 key: _formKey,
                 child: Padding(
@@ -131,23 +135,6 @@ class PostProduct extends StatelessWidget {
                         SizedBox(
                           height: Adaptive.h(3),
                         ),
-                        // FormBuilderTextField(
-                        //   keyboardType: TextInputType.text,
-                        //   validator: _validation,
-                        //   // controller: authController.password,
-                        //   textInputAction: TextInputAction.done,
-                        //   name: 'Image',
-                        //   decoration: InputDecoration(
-                        //     border: _border,
-                        //     constraints: _constraints,
-                        //     fillColor: Colors.grey[300],
-                        //     filled: true,
-                        //     labelText: "Image",
-                        //   ),
-                        // ),
-                        // SizedBox(
-                        //   height: Adaptive.h(2),
-                        // ),
                         ElevatedButton(
                           onPressed: () => postProductController.saveImages(),
                           child: Text(
@@ -170,16 +157,6 @@ class PostProduct extends StatelessWidget {
                               backgroundColor: MaterialStateProperty.all(
                                   Color.fromRGBO(0, 191, 166, 1))),
                         )
-                        // FlatButton(
-                        //   minWidth: Adaptive.w(60),
-                        //   textColor: Colors.grey[800],
-                        //   shape: RoundedRectangleBorder(
-                        //     borderRadius: BorderRadius.circular(8.0),
-                        //     side: const BorderSide(width: 2.5,
-                        //         color: Color.fromRGBO(0, 191, 166, 1)),
-                        //   ),
-                        //   onPressed: () => null,
-                        //   child: Text("Create"),
                       ],
                     ),
                   ),
@@ -187,6 +164,6 @@ class PostProduct extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

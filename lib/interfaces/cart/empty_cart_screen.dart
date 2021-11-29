@@ -5,10 +5,12 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/controllers/animation_controller.dart';
+import 'package:yanni_store/controllers/nav_controller.dart';
 import 'package:yanni_store/utils/images.dart';
 import 'package:yanni_store/widgets/circular_button/circular_button.dart';
 
 class EmptyCartScreen extends StatelessWidget {
+  final BottonNavBar bottonNavBar = Get.put(BottonNavBar());
   final AnimationsController animationsController =
       Get.put(AnimationsController());
   @override
@@ -52,6 +54,7 @@ class EmptyCartScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
                 onClick: () {
+                  bottonNavBar.onTab(1);
                   if (animationsController.animationControllers!.isCompleted) {
                     animationsController.animationControllers?.reverse();
                   } else {

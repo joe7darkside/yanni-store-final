@@ -6,7 +6,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/controllers/rating_controller.dart';
 import 'package:yanni_store/models/rating_star_model.dart';
 
-
 //? complete the product page as sliver
 class ProductScreen extends StatelessWidget {
   final RatingController ratingController = Get.put(RatingController());
@@ -21,44 +20,43 @@ class ProductScreen extends StatelessWidget {
         children: [
           CustomScrollView(
             slivers: [
-              // {title, category, likes, images, price,des,rating}
               SliverAppBar(
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
                   background: Stack(
                     alignment: AlignmentDirectional.topStart,
                     children: [
-                      Image.network(
-                        data[3],
-                        fit: BoxFit.fill,
-                        width: Adaptive.w(100),
-                        height: Adaptive.h(50),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Icon(
-                              Icons.arrow_back_ios_new,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            LikeButton(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              isLiked: data[2],
-                              animationDuration:
-                                  const Duration(milliseconds: 700),
-                              bubblesSize: 30,
-                              bubblesColor: const BubblesColor(
-                                  dotPrimaryColor: Colors.red,
-                                  dotSecondaryColor: Colors.redAccent),
-                              size: 30,
-                              // likeCount: likes,
-                            ),
-                          ],
+                      Hero(
+                        tag: 'image${data[7]}',
+                        child: Image.network(
+                          data[3],
+                          fit: BoxFit.fill,
+                          width: Adaptive.w(100),
+                          height: Adaptive.h(40),
                         ),
                       ),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(20.0),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.end,
+                      //     children: [
+                      //       LikeButton(
+                      //         mainAxisAlignment: MainAxisAlignment.center,
+                      //         crossAxisAlignment: CrossAxisAlignment.start,
+                      //         isLiked: data[2],
+                      //         animationDuration:
+                      //             const Duration(milliseconds: 700),
+                      //         bubblesSize: 30,
+                      //         bubblesColor: const BubblesColor(
+                      //             dotPrimaryColor: Colors.red,
+                      //             dotSecondaryColor: Colors.redAccent),
+                      //         size: 30,
+                      //         // likeCount: likes,
+                      //       ),
+                      //       // )
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
@@ -68,16 +66,35 @@ class ProductScreen extends StatelessWidget {
               SliverList(
                   delegate: SliverChildBuilderDelegate((context, index) {
                 return Container(
-                  margin: EdgeInsets.only(left: 14, top: 12),
+                  padding: EdgeInsets.all(12),
                   color: Colors.white,
                   width: Adaptive.h(100),
-                  height: Adaptive.h(100),
+                  height: Adaptive.h(75),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        data[0],
-                        style: GoogleFonts.lato(fontSize: 26),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            data[0],
+                            style: GoogleFonts.lato(
+                                fontSize: 26, color: Colors.black),
+                          ),
+                          LikeButton(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            isLiked: data[2],
+                            animationDuration:
+                                const Duration(milliseconds: 700),
+                            bubblesSize: 30,
+                            bubblesColor: const BubblesColor(
+                                dotPrimaryColor: Colors.red,
+                                dotSecondaryColor: Colors.redAccent),
+                            size: 30,
+                            // likeCount: likes,
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 8,
@@ -94,7 +111,7 @@ class ProductScreen extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        "\$${data[4]}",
+                        "\$ ${data[4]}",
                         style:
                             GoogleFonts.lato(fontSize: 20, color: Colors.blue),
                       ),

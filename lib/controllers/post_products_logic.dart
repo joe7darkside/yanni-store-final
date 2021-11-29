@@ -14,7 +14,7 @@ class PostProductController extends GetxController {
   final int rating = 0;
   final bool isLike = false;
 
-  var image = ''.obs;
+  var image = [].obs;
   var returnURL;
   List<File> _images = [];
   final CollectionReference _firestore =
@@ -41,7 +41,8 @@ class PostProductController extends GetxController {
     }
     if (pickedFile != null) {
       _images.add(File(pickedFile.path));
-      print(image.value);
+      image.add(File(pickedFile.path));
+      // print(image.value);
     } else {
       print('No image selected.');
     }

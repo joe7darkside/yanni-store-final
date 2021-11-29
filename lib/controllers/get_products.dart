@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class GetProductsController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -30,6 +29,11 @@ class GetProductsController extends GetxController {
         print('$title\n $likes\n $price\n $images\n $category');
       }
     });
+  }
+
+  @override
+  void refresh() {
+    super.refresh();
   }
 
   @override

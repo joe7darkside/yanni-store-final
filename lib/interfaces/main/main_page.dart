@@ -56,8 +56,8 @@ class MainScreen extends StatelessWidget {
             title: const Text('Cart'),
           ),
           FlashyTabBarItem(
-            icon: const Icon(Icons.people),
-            title: const Text('Profile'),
+            icon: const Icon(Icons.settings),
+            title: const Text('Settings'),
           )
         ],
         onItemSelected: (index) {

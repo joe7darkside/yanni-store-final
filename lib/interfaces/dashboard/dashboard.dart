@@ -1,21 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yanni_store/controllers/animation_controller.dart';
 import 'package:yanni_store/controllers/category_controller.dart';
+import 'package:yanni_store/widgets/circular_button/circular_button.dart';
 import 'package:yanni_store/widgets/dashboard_items/dashboard_item_card.dart';
 import 'package:yanni_store/utils/images.dart';
-
 import '../../controllers/get_products.dart';
 
 class DashboardScreen extends StatelessWidget {
   GetProductsController productDataController =
       Get.put(GetProductsController());
-
+  final AnimationsController animationsController =
+      Get.put(AnimationsController());
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      floatingActionButton: GetBuilder<AnimationsController>(
+        builder: (AnimationsController) {
+          return Transform(
+              alignment: Alignment.center,
+              transform: Matrix4.rotationZ(
+                  animationsController.getRadiosFromDegree(
+                      animationsController.rotationController!.value)),
+              child: FloatingActionButton(
+                child: Icon(FontAwesomeIcons.plus),
+                // color: Colors.blue,
+                // height: 60,
+                // width: 60,
+                // icon: const Icon(
+                //   FontAwesomeIcons.plus,
+                //   color: Colors.white,
+                // ),
+                onPressed: () {
+                  if (animationsController.animationControllers!.isCompleted) {
+                    animationsController.animationControllers?.reverse();
+                  } else {
+                    animationsController.animationControllers?.forward();
+                  }
+                  Get.toNamed('/PostProduct');
+                },
+              ));
+        },
+        init: AnimationsController(),
+      ),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(

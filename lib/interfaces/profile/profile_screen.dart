@@ -3,15 +3,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:yanni_store/controllers/animation_controller.dart';
 import 'package:yanni_store/controllers/auth_controller.dart';
 import 'package:yanni_store/controllers/toggle_controller.dart';
+import 'package:yanni_store/widgets/circular_button/circular_button.dart';
 import 'package:yanni_store/widgets/toggle_button/toggle_button.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key, this.name, this.image, this.email})
       : super(key: key);
   final AuthController authController = Get.put(AuthController());
-
+  
   final ToggleController toggleController = Get.put(ToggleController());
   final String? name;
   final String? image;
@@ -199,6 +201,24 @@ class ProfileScreen extends StatelessWidget {
                             child: ListTile(
                               title: Text(
                                 'Privacy Policy',
+                                style:
+                                    GoogleFonts.lato(fontSize: Adaptive.sp(18)),
+                              ),
+                              trailing: Icon(FontAwesomeIcons.chevronRight),
+                            ),
+                          ),
+                          Divider(
+                            thickness: 1,
+                            indent: 0,
+                            endIndent: 0,
+                            color: Colors.grey[300],
+                          ),
+                          InkWell(
+                            onTap: () => Get.toNamed('/dashboard'),
+                            enableFeedback: true,
+                            child: ListTile(
+                              title: Text(
+                                'Add Items',
                                 style:
                                     GoogleFonts.lato(fontSize: Adaptive.sp(18)),
                               ),

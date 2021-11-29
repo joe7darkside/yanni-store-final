@@ -5,6 +5,7 @@ import 'package:onboarding/onboarding.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yanni_store/interfaces/main/main_page.dart';
+import 'package:yanni_store/utils/images.dart';
 import '../../main.dart';
 
 class OnBoarding extends StatelessWidget {
@@ -23,7 +24,7 @@ class OnBoarding extends StatelessWidget {
             height: 20,
           ),
           SvgPicture.asset(
-            'assets/onBoarding/music.svg',
+            onboardingImageOne,
             height: Adaptive.h(40),
             width: Adaptive.h(50),
           ),
@@ -49,7 +50,7 @@ class OnBoarding extends StatelessWidget {
             height: 20,
           ),
           SvgPicture.asset(
-            'assets/onBoarding/online_shoping.svg',
+            onboardingImageTwo,
             height: Adaptive.h(40),
             width: Adaptive.h(50),
           ),
@@ -75,7 +76,7 @@ class OnBoarding extends StatelessWidget {
             height: 20,
           ),
           SvgPicture.asset(
-            'assets/onBoarding/delivery.svg',
+            onboardingImageThree,
             height: Adaptive.h(40),
             width: Adaptive.h(50),
           ),

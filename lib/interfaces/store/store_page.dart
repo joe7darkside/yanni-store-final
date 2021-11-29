@@ -7,6 +7,7 @@ import 'package:yanni_store/widgets/product/product_card.dart';
 import 'package:yanni_store/utils/images.dart';
 import '../../widgets/category_items_selecter/category_item_selecter.dart';
 
+//! fix category scroll issues
 class StoreScreen extends StatelessWidget {
   GetProductsController productDataController =
       Get.put(GetProductsController());
@@ -20,30 +21,33 @@ class StoreScreen extends StatelessWidget {
         padding: const EdgeInsets.only(
           top: 20,
         ),
-        child: Column(
-          children: [
-            Flexible(child: HorizList()),
+        child:
+            // ListView(
+            //   children: [
+            // Flexible(child: HorizList()),
             StaggeredGridView.countBuilder(
-              physics: const AlwaysScrollableScrollPhysics(
-                  parent: BouncingScrollPhysics()),
-              crossAxisCount: 4,
-              itemCount: productDataController.title.length,
-              itemBuilder: (BuildContext context, int index) => ProductCard(
-                rating: productDataController.rating[index],
-                descraption: productDataController.descraption[index],
-                title: productDataController.title[index],
-                price: productDataController.price[index],
-                likes: productDataController.likes[index],
-                images: productDataController.images[index][0],
-                category: productDataController.category[index],
-              ),
-              staggeredTileBuilder: (int index) =>
-                  StaggeredTile.count(2, index.isEven ? 2.8 : 2.8),
-              shrinkWrap: true,
-              mainAxisSpacing: 4.0,
-              crossAxisSpacing: 4.0,
-            )
-          ],
+          addAutomaticKeepAlives: true,
+          physics: const AlwaysScrollableScrollPhysics(
+              parent: BouncingScrollPhysics()),
+          crossAxisCount: 4,
+          itemCount: productDataController.title.length,
+          itemBuilder: (BuildContext context, int index) => ProductCard(
+            number: index,
+            rating: productDataController.rating[index],
+            descraption: productDataController.descraption[index],
+            title: productDataController.title[index],
+            price: productDataController.price[index],
+            likes: productDataController.likes[index],
+            images: productDataController.images[index][0],
+            category: productDataController.category[index],
+          ),
+          staggeredTileBuilder: (int index) =>
+              StaggeredTile.count(2, index.isEven ? 2.8 : 2.8),
+          shrinkWrap: true,
+          mainAxisSpacing: 4.0,
+          crossAxisSpacing: 4.0,
+          //   ),
+          // ],
         ),
       ),
     ));
