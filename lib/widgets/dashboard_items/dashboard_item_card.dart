@@ -7,6 +7,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 class ItemCards extends StatelessWidget {
   ItemCards(
       {Key? key,
+      required this.number,
       required this.title,
       required this.price,
       required this.likes,
@@ -15,6 +16,7 @@ class ItemCards extends StatelessWidget {
       this.images,
       required this.category})
       : super(key: key);
+  final int? number;
   String? descraption;
   final String? title;
   final int? price;

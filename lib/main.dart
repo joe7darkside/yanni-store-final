@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return GetMaterialApp(
-          themeMode: ThemeMode.system,
+          themeMode: ThemeMode.light,
           // themeMode: hemes.light,
           darkTheme: Themes.dark,
           theme: Themes.light,

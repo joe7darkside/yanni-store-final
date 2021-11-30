@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:like_button/like_button.dart';
@@ -6,7 +7,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:yanni_store/controllers/rating_controller.dart';
 import 'package:yanni_store/models/rating_star_model.dart';
 
-//? complete the product page as sliver
 class ProductScreen extends StatelessWidget {
   final RatingController ratingController = Get.put(RatingController());
   final List data = Get.arguments;
@@ -21,6 +21,45 @@ class ProductScreen extends StatelessWidget {
           CustomScrollView(
             slivers: [
               SliverAppBar(
+                actions: [
+                  Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      color: Colors.white,
+                    ),
+                    margin: const EdgeInsets.only(
+                        right: 10, top: 10, bottom: 10, left: 10),
+                    width: 50,
+                    height: 50,
+                    child: LikeButton(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      isLiked: data[2],
+                      animationDuration: const Duration(milliseconds: 700),
+                      bubblesSize: 30,
+                      bubblesColor: const BubblesColor(
+                          dotPrimaryColor: Colors.red,
+                          dotSecondaryColor: Colors.redAccent),
+                      size: 30,
+                      // likeCount: likes,
+                    ),
+                  ),
+                ],
+                leading: Container(
+                  margin: EdgeInsets.all(8),
+                  width: 25,
+                  height: 25,
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: Colors.white,
+                  ),
+                  child: IconButton(
+                      onPressed: () => Get.back(),
+                      icon: Icon(
+                        FontAwesomeIcons.arrowLeft,
+                        color: Colors.grey[800],
+                      )),
+                ),
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
                   background: Stack(
@@ -35,28 +74,8 @@ class ProductScreen extends StatelessWidget {
                           height: Adaptive.h(40),
                         ),
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.all(20.0),
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.end,
-                      //     children: [
-                      //       LikeButton(
-                      //         mainAxisAlignment: MainAxisAlignment.center,
-                      //         crossAxisAlignment: CrossAxisAlignment.start,
-                      //         isLiked: data[2],
-                      //         animationDuration:
-                      //             const Duration(milliseconds: 700),
-                      //         bubblesSize: 30,
-                      //         bubblesColor: const BubblesColor(
-                      //             dotPrimaryColor: Colors.red,
-                      //             dotSecondaryColor: Colors.redAccent),
-                      //         size: 30,
-                      //         // likeCount: likes,
-                      //       ),
-                      //       // )
-                      //     ],
-                      //   ),
-                      // ),
+
+                      // )
                     ],
                   ),
                 ),
